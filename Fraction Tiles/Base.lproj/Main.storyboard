@@ -7,16 +7,71 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Fraction_Tiles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FracTiles" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="x9D-pX-DMT">
+                                <rect key="frame" x="40" y="42" width="240" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="ILw-WZ-dvT">
+                                <rect key="frame" x="40" y="296" width="60" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.99284463840048476" blue="0.11475573379350512" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="0Vc-XZ-AtJ" appends="YES" id="nXJ-uh-703"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" id="ebL-OG-7Gg">
+                                <rect key="frame" x="40" y="368" width="30" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.96516716560032689" green="0.59586944626667049" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="4Ai-cs-T0k" appends="YES" id="0je-Yq-JZc"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" id="yyH-o5-6I9">
+                                <rect key="frame" x="40" y="220" width="120" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.74672292199119572" green="1" blue="0.10915716260374797" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ZoL-99-Bla" appends="YES" id="Fce-O4-J28"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.69621420561573943" green="0.9539052603766226" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="halfTile" destination="yyH-o5-6I9" id="BLk-XW-GwR"/>
+                        <outlet property="oneEighthTile" destination="ebL-OG-7Gg" id="boz-Ic-pTj"/>
+                        <outlet property="problemTile" destination="x9D-pX-DMT" id="D1r-Qb-MN0"/>
+                        <outlet property="quarterTile" destination="ILw-WZ-dvT" id="3zw-6U-26b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="ZoL-99-Bla" userLabel="Half Tile Pan Gesture Recognizer">
+                    <connections>
+                        <action selector="onhalfTilePan:" destination="BYZ-38-t0r" id="sOg-x5-B40"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="0Vc-XZ-AtJ" userLabel="Quarter Tile Pan Gesture Recognizer">
+                    <connections>
+                        <action selector="onquarterTilePan:" destination="BYZ-38-t0r" id="ARM-T6-Otg"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="4Ai-cs-T0k" userLabel="One Eight Tile Pan Gesture Recognizer">
+                    <connections>
+                        <action selector="onOneEighthTilePan:" destination="BYZ-38-t0r" id="SOG-m9-xWY"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="162.66666666666666" y="366.83333333333331"/>
+            <point key="canvasLocation" x="99" y="366"/>
         </scene>
     </scenes>
 </document>
