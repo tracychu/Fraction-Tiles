@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="pyv-7z-QgN">
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hCe-RM-hPI">
+>>>>>>> origin/master
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
@@ -66,17 +70,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="ILw-WZ-dvT">
-                                <rect key="frame" x="40" y="296" width="60" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.99284463840048476" blue="0.11475573379350512" alpha="1" colorSpace="calibratedRGB"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="0Vc-XZ-AtJ" appends="YES" id="nXJ-uh-703"/>
-                                </connections>
-                            </view>
                             <view contentMode="scaleToFill" id="ebL-OG-7Gg">
-                                <rect key="frame" x="40" y="368" width="30" height="50"/>
+                                <rect key="frame" x="40" y="486" width="30" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96516716560032689" green="0.59586944626667049" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
@@ -85,12 +80,21 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" id="yyH-o5-6I9">
-                                <rect key="frame" x="40" y="220" width="120" height="50"/>
+                                <rect key="frame" x="40" y="259" width="120" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.74672292199119572" green="1" blue="0.10915716260374797" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="ZoL-99-Bla" appends="YES" id="Fce-O4-J28"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" id="ILw-WZ-dvT">
+                                <rect key="frame" x="40" y="388" width="60" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.99284463840048476" blue="0.11475573379350512" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="0Vc-XZ-AtJ" appends="YES" id="nXJ-uh-703"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -121,6 +125,57 @@
                 </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="407" y="329"/>
+        </scene>
+        <!--Correct View Controller-->
+        <scene sceneID="ErJ-8P-tse">
+            <objects>
+                <viewController id="hCe-RM-hPI" customClass="CorrectViewController" customModule="Fraction_Tiles" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N4r-KD-zVr">
+                        <rect key="frame" x="0.0" y="0.0" width="372" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Your Score:" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="20" id="fHL-bZ-YLJ">
+                                <rect key="frame" x="113" y="185" width="147" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" id="Ryc-uQ-GiS" userLabel="Play Again Button Image">
+                                <rect key="frame" x="142" y="400" width="88" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Play Again" textAlignment="natural" minimumFontSize="17" id="0fP-Bh-8tr">
+                                        <rect key="frame" x="5" y="3" width="97" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4wH-by-5OC">
+                                        <rect key="frame" x="0.0" y="-3" width="88" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="modal" modalTransitionStyle="crossDissolve" id="coK-Mp-SRi"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Correct!" textAlignment="center" minimumFontSize="17" id="zuA-Hh-zio">
+                                <rect key="frame" x="113" y="44" width="145" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="372" height="667"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ARP-YG-Py3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="507" y="366"/>
         </scene>
     </scenes>
     <resources>

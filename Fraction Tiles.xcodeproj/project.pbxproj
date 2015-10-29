@@ -14,6 +14,7 @@
 		9A8DB7A71BE288EE00C25C09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A8DB7A51BE288EE00C25C09 /* LaunchScreen.storyboard */; };
 		9A8DB7B21BE288EE00C25C09 /* Fraction_TilesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8DB7B11BE288EE00C25C09 /* Fraction_TilesTests.swift */; };
 		9A8DB7BD1BE288EE00C25C09 /* Fraction_TilesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8DB7BC1BE288EE00C25C09 /* Fraction_TilesUITests.swift */; };
+		9A8DB7CB1BE28FE000C25C09 /* CorrectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8DB7CA1BE28FE000C25C09 /* CorrectViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		9A8DB7B81BE288EE00C25C09 /* Fraction TilesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fraction TilesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A8DB7BC1BE288EE00C25C09 /* Fraction_TilesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fraction_TilesUITests.swift; sourceTree = "<group>"; };
 		9A8DB7BE1BE288EE00C25C09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A8DB7CA1BE28FE000C25C09 /* CorrectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CorrectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				9A8DB79C1BE288EE00C25C09 /* AppDelegate.swift */,
 				9A8DB79E1BE288EE00C25C09 /* ViewController.swift */,
 				9A8DB7A01BE288EE00C25C09 /* Main.storyboard */,
+				9A8DB7CA1BE28FE000C25C09 /* CorrectViewController.swift */,
 				9A8DB7A31BE288EE00C25C09 /* Assets.xcassets */,
 				9A8DB7A51BE288EE00C25C09 /* LaunchScreen.storyboard */,
 				9A8DB7A81BE288EE00C25C09 /* Info.plist */,
@@ -255,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A8DB7CB1BE28FE000C25C09 /* CorrectViewController.swift in Sources */,
 				9A8DB79F1BE288EE00C25C09 /* ViewController.swift in Sources */,
 				9A8DB79D1BE288EE00C25C09 /* AppDelegate.swift in Sources */,
 			);
