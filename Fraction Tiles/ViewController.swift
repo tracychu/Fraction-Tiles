@@ -49,8 +49,8 @@ class ViewController: UIViewController {
             //print("Gesture began at: \(messageLocation)")
             
         } else if sender.state == UIGestureRecognizerState.Changed {
-            UIView.animateWithDuration(0.3, animations: { () -> Void in
-                self.halfTile.center = CGPoint(x: self.halfTile.center.x, y: self.halfTile.center.y+translation.y)
+            UIView.animateWithDuration(0.6, animations: { () -> Void in
+                self.halfTile.center = CGPoint(x: self.inithalfTile.x+translation.x, y: self.inithalfTile.y+translation.y)
             })
             
             
@@ -60,13 +60,13 @@ class ViewController: UIViewController {
             
             if problemTile.frame.contains(halfTile.frame.origin) {
            
-                UIView.animateWithDuration(0.3, animations: { () -> Void in
+                UIView.animateWithDuration(0.6, animations: { () -> Void in
             self.halfTile.frame.origin = self.problemTile.frame.origin
             })
             
                 
             } else {
-                UIView.animateWithDuration(0.3, animations: { () -> Void in
+                UIView.animateWithDuration(0.6, animations: { () -> Void in
                     self.halfTile.center = self.inithalfTile
                 })
                 
@@ -85,9 +85,10 @@ class ViewController: UIViewController {
         
         if sender.state == UIGestureRecognizerState.Began {
             //print("Gesture began at: \(messageLocation)")
+           // initquarterTile = quarterTile.center
             
         } else if sender.state == UIGestureRecognizerState.Changed {
-            quarterTile.center = CGPoint(x: quarterTile.center.x+translation.x, y: quarterTile.center.y+translation.y)
+            quarterTile.center = CGPoint(x: initquarterTile.x+translation.x, y: initquarterTile.y+translation.y)
             
             
         } else if sender.state == UIGestureRecognizerState.Ended {
@@ -122,7 +123,7 @@ class ViewController: UIViewController {
             //print("Gesture began at: \(messageLocation)")
             
         } else if sender.state == UIGestureRecognizerState.Changed {
-            oneEighthTile.center = CGPoint(x: oneEighthTile.center.x+translation.x, y: oneEighthTile.center.y+translation.y)
+            oneEighthTile.center = CGPoint(x: initoneEighthTile.x+translation.x, y: initoneEighthTile.y+translation.y)
             
             
         } else if sender.state == UIGestureRecognizerState.Ended {
