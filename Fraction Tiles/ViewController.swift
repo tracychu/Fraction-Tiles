@@ -21,6 +21,14 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var oneEighthTile: UIView!
     var initoneEighthTile: CGPoint!
+    var SolRect: CGRect!
+    var tilePos: Int!
+    var posWidth: Array<CGFloat>!
+    var setMaxX: CGFloat!
+    var sumOfWidth: CGFloat!
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +37,10 @@ class ViewController: UIViewController {
         inithalfTile = halfTile.center
         initquarterTile = quarterTile.center
         initoneEighthTile = oneEighthTile.center
-        
+        tilePos = 0
+        posWidth = [0,0,0,0,0,0,0,0]
+        sumOfWidth = 0.0
+        print("Here view didload")
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +62,7 @@ class ViewController: UIViewController {
         } else if sender.state == UIGestureRecognizerState.Changed {
             UIView.animateWithDuration(0.6, animations: { () -> Void in
                 self.halfTile.center = CGPoint(x: self.inithalfTile.x+translation.x, y: self.inithalfTile.y+translation.y)
+                
             })
             
             
@@ -59,17 +71,40 @@ class ViewController: UIViewController {
             
             
             if problemTile.frame.contains(halfTile.frame.origin) {
+                print("Here \(tilePos)")
            
                 UIView.animateWithDuration(0.6, animations: { () -> Void in
-            self.halfTile.frame.origin = self.problemTile.frame.origin
-            })
             
+                    if self.tilePos == 0 {
+                        //self.posWidth[self.tilePos] = self.halfTile.frame.width
+                        self.posWidth.append(self.halfTile.frame.width)
+                    self.problemTile.addSubview(self.halfTile)
+                    self.halfTile.frame.origin = self.problemTile.bounds.origin
+                        
+                    } else {
+                        
+                        for (var i = 0; i <= self.tilePos; i++) {
+                            self.sumOfWidth = self.sumOfWidth+self.posWidth[i]
+                            
+                        }
+                        print("Total Width :\(self.sumOfWidth)")
+                        print("Problem Tile Width :\(self.problemTile.frame.origin.x)")
+                     self.setMaxX = self.problemTile.frame.origin.x + self.sumOfWidth
+                        self.halfTile.frame.origin = CGPoint(x: self.setMaxX, y:
+                            self.problemTile.frame.height)
+                    }
+                    
+                    self.tilePos = self.tilePos+1
+                    
+            })
                 
             } else {
                 UIView.animateWithDuration(0.6, animations: { () -> Void in
                     self.halfTile.center = self.inithalfTile
+                    
                 })
-                
+               // halfTile.removeFromSuperview()
+                print("HalfTile removed from problemTile")
             }
         }
     }
@@ -95,11 +130,14 @@ class ViewController: UIViewController {
             
             
             if problemTile.frame.contains(quarterTile.frame.origin) {
-                
+                self.problemTile.addSubview(self.quarterTile)
                 UIView.animateWithDuration(0.3, animations: { () -> Void in
-                    self.quarterTile.frame.origin = CGPoint(x: self.halfTile.frame.maxX, y: self.halfTile.frame.minY)
+                    
+                    self.quarterTile.frame.origin = self.problemTile.bounds.origin
+                    self.posWidth[self.tilePos] = self.quarterTile.frame.width
+                    print("After addiing quarter tile Width :\(self.quarterTile.frame.width)")
                 })
-                
+                self.tilePos = self.tilePos+1
                 
             } else {
                 UIView.animateWithDuration(0.3, animations: { () -> Void in
