@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     var initoneEighthTile: CGPoint!
     var SolRect: CGRect!
     var tilePos: Int!
-    var posWidth: Array<CGFloat>!
+    var posWidth: [CGFloat] = []
     var setMaxX: CGFloat!
     var sumOfWidth: CGFloat!
     
@@ -38,9 +38,11 @@ class ViewController: UIViewController {
         initquarterTile = quarterTile.center
         initoneEighthTile = oneEighthTile.center
         tilePos = 0
-        posWidth = [0,0,0,0,0,0,0,0]
+        
         sumOfWidth = 0.0
-        print("Here view didload")
+        setMaxX = 0.0
+        print("Here view didload :\(inithalfTile.x) \(inithalfTile.y)")
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,6 +61,7 @@ class ViewController: UIViewController {
         if sender.state == UIGestureRecognizerState.Began {
             //print("Gesture began at: \(messageLocation)")
             
+            
         } else if sender.state == UIGestureRecognizerState.Changed {
             UIView.animateWithDuration(0.6, animations: { () -> Void in
                 self.halfTile.center = CGPoint(x: self.inithalfTile.x+translation.x, y: self.inithalfTile.y+translation.y)
@@ -71,37 +74,45 @@ class ViewController: UIViewController {
             
             
             if problemTile.frame.contains(halfTile.frame.origin) {
-                print("Here \(tilePos)")
            
                 UIView.animateWithDuration(0.6, animations: { () -> Void in
             
                     if self.tilePos == 0 {
-                        //self.posWidth[self.tilePos] = self.halfTile.frame.width
                         self.posWidth.append(self.halfTile.frame.width)
-                    self.problemTile.addSubview(self.halfTile)
-                    self.halfTile.frame.origin = self.problemTile.bounds.origin
+                        
+                  //  self.problemTile.addSubview(self.halfTile)
+                    self.halfTile.frame.origin = self.problemTile.frame.origin
                         
                     } else {
-                        
-                        for (var i = 0; i <= self.tilePos; i++) {
+                        self.sumOfWidth = 0
+                        for (var i = 0; i < self.posWidth.count ; i++) {
                             self.sumOfWidth = self.sumOfWidth+self.posWidth[i]
-                            
                         }
-                        print("Total Width :\(self.sumOfWidth)")
-                        print("Problem Tile Width :\(self.problemTile.frame.origin.x)")
-                     self.setMaxX = self.problemTile.frame.origin.x + self.sumOfWidth
-                        self.halfTile.frame.origin = CGPoint(x: self.setMaxX, y:
-                            self.problemTile.frame.height)
+                        print("problemTile Origin : \(self.problemTile.frame.origin.x)")
+                        print("Sum Of Width : \(self.sumOfWidth)")
+                        
+                        self.halfTile.frame.origin = CGPoint(x: self.problemTile.frame.origin.x + self.sumOfWidth, y:
+                            self.problemTile.frame.minY)
+                            self.posWidth.append(self.halfTile.frame.width)
                     }
-                    
                     self.tilePos = self.tilePos+1
-                    
+                   
+                   // self.posWidth[self.tilePos] = self.halfTile.frame.width
             })
                 
             } else {
                 UIView.animateWithDuration(0.6, animations: { () -> Void in
-                    self.halfTile.center = self.inithalfTile
+                    for (var i = 0; i < self.posWidth.count ; i++) {
+                        if (self.posWidth[i]) == self.halfTile.frame.width {
+                            self.posWidth.removeAtIndex(i)
+                            self.tilePos = self.tilePos - 1
                     
+                        }
+                        
+                    }
+                   // self.halfTile.removeFromSuperview()
+                    self.halfTile.center = self.inithalfTile
+                    print("Removed from problemTile :\(self.halfTile.center.x) \(self.halfTile.center.y)")
                 })
                // halfTile.removeFromSuperview()
                 print("HalfTile removed from problemTile")
@@ -130,11 +141,26 @@ class ViewController: UIViewController {
             
             
             if problemTile.frame.contains(quarterTile.frame.origin) {
-                self.problemTile.addSubview(self.quarterTile)
+               // self.problemTile.addSubview(self.quarterTile)
+                self.sumOfWidth = 0.0
                 UIView.animateWithDuration(0.3, animations: { () -> Void in
+                    if (self.tilePos == 0) {
+                        self.quarterTile.frame.origin = self.problemTile.frame.origin
+                        self.posWidth.append(self.quarterTile.frame.width)
+                    } else {
+                        for (var i = 0; i < self.posWidth.count ; i++) {
+                            self.sumOfWidth = self.sumOfWidth+self.posWidth[i]
+                        }
+                        
+                        print("X Y Pos after adding quarter tile :\(self.setMaxX), \(self.problemTile.frame.minY)")
+                        print("sumOfWidth quarter tile :\(self.sumOfWidth)")
+                        
+                        self.quarterTile.frame.origin = CGPoint(x: self.problemTile.frame.origin.x + self.sumOfWidth, y:
+                            self.problemTile.frame.minY)
+                        self.posWidth.append(self.quarterTile.frame.width)
+
+                    }
                     
-                    self.quarterTile.frame.origin = self.problemTile.bounds.origin
-                    self.posWidth[self.tilePos] = self.quarterTile.frame.width
                     print("After addiing quarter tile Width :\(self.quarterTile.frame.width)")
                 })
                 self.tilePos = self.tilePos+1
@@ -143,6 +169,13 @@ class ViewController: UIViewController {
                 UIView.animateWithDuration(0.3, animations: { () -> Void in
                     self.quarterTile.center = self.initquarterTile
                 })
+                for (var i = 0; i < self.posWidth.count ; i++) {
+                    if (self.posWidth[i]) == self.quarterTile.frame.width {
+                        self.posWidth.removeAtIndex(i)
+                        self.tilePos = self.tilePos - 1
+                        
+                    }
+                }
                 
             }
         }
@@ -170,14 +203,38 @@ class ViewController: UIViewController {
             if problemTile.frame.contains(oneEighthTile.frame.origin) {
                 
                 UIView.animateWithDuration(0.3, animations: { () -> Void in
+                    
+                    //self.problemTile.addSubview(self.oneEighthTile)
                     self.oneEighthTile.frame.origin = CGPoint(x: self.quarterTile.frame.maxX, y: self.quarterTile.frame.minY)
+                    
+                    if (self.tilePos == 0) {
+                        self.oneEighthTile.frame.origin = self.problemTile.frame.origin
+                       self.posWidth.append(self.oneEighthTile.frame.width)
+                    } else {
+                        self.sumOfWidth = 0
+                        for (var i = 0; i < self.posWidth.count ; i++) {
+                            self.sumOfWidth = self.sumOfWidth+self.posWidth[i]
+                        }
+                        
+                        self.oneEighthTile.frame.origin = CGPoint(x: self.problemTile.frame.origin.x + self.sumOfWidth, y:
+                            self.problemTile.frame.minY)
+                        self.posWidth.append(self.oneEighthTile.frame.width)
+                        
+                    }
+                    
                 })
-                
+                self.tilePos = self.tilePos+1
                 
             } else {
                 UIView.animateWithDuration(0.3, animations: { () -> Void in
                     self.oneEighthTile.center = self.initoneEighthTile
                 })
+                for (var i = 0; i < self.posWidth.count ; i++) {
+                    if (self.posWidth[i]) == self.oneEighthTile.frame.width {
+                        self.posWidth.removeAtIndex(i)
+                        self.tilePos = self.tilePos - 1
+                    }
+                }
                 
             }
         }
