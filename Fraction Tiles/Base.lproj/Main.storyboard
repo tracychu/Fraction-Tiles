@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--PlayNow View Controller-->
         <scene sceneID="gJ8-Vp-d5w">
             <objects>
-                <viewController id="pyv-7z-QgN" sceneMemberID="viewController">
+                <viewController id="pyv-7z-QgN" userLabel="PlayNow View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1eH-VR-qRa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -192,7 +192,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="VFS-5I-0xj">
+                            <view contentMode="scaleToFill" id="VFS-5I-0xj" userLabel="solutionTilesView">
                                 <rect key="frame" x="0.0" y="247" width="320" height="321"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -368,6 +368,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="solutionTilesView" destination="VFS-5I-0xj" id="5cH-P3-XPo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yzs-Ru-X5d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

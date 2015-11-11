@@ -12,6 +12,8 @@ class FractionTilesver2ViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var solutionTilesView: UIView!
+    
     var imageViewArray = Array<UIImageView>()
     
     var i = 0
@@ -24,12 +26,28 @@ class FractionTilesver2ViewController: UIViewController {
     
     var puzzleWidth: CGFloat!
     
+    var oneEighthTileView: UIView!
+    var initoneEighthTileView: CGPoint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         puzzleView = UIImageView(frame: CGRectMake(20,50,280,50))
         puzzleLabel = UILabel(frame: CGRectMake(0, 0, 40, 50))
         setPuzzle(0, 1)
+        var frameView = CGRect(x: 60, y: 252, width: 30, height: 50)
+        
+        oneEighthTileView = UIView(frame: frameView)
+        oneEighthTileView.backgroundColor = UIColor.init(red: 0.4, green: 0, blue: 0.0, alpha: 1.0)
+        
+        //  oneEighthTileView.backgroundColor = UIColor.init(white: 0.8, alpha: 1.0)
+        solutionTilesView.addSubview(oneEighthTileView)
+        oneEighthTileView.userInteractionEnabled = true
+        initoneEighthTileView = oneEighthTileView.center
+        var panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "onTilePan:")
+        
+        oneEighthTileView.addGestureRecognizer(panGestureRecognizer)
+
         
     }
     
@@ -227,6 +245,11 @@ class FractionTilesver2ViewController: UIViewController {
     
     @IBAction func didPressTryAgain(sender: UIButton) {
         clearSolution()
+    }
+    
+    
+    func onTilePan(sender: UIPanGestureRecognizer) {
+        print("Here in pan")
     }
     
     /*
