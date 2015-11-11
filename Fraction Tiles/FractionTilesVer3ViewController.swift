@@ -46,8 +46,8 @@ class FractionTilesVer3ViewController: UIViewController {
     var viewTappedOrigin_Y: CGFloat = 130
 
     
-    var fractionX: Int!
-    var fractionY: Int!
+    var tagX: Int = 0
+    var tagY: Int = 0
     
     var fractionArray = [String](count: 26, repeatedValue: "1/2")
     var sampleSolutionArray = [String](count: 26, repeatedValue: "1/2, 1/2")
@@ -232,10 +232,10 @@ class FractionTilesVer3ViewController: UIViewController {
             let x = CGFloat(NSNumberFormatter().numberFromString(m[0])!)
             let y = CGFloat(NSNumberFormatter().numberFromString(m[1])!)
             
-            let imageName = getFractionImage(String(x), String(y))
+            let imageName = getFractionImage(String(Int(x)), String(Int(y)))
             
             
-            drawView(sampleSolutionOrigin_X, sampleSolutionOrigin_Y, availableWidth * x/y, 50, tempSampSol[temp_x], puzzleView, UIColor.redColor(), UIColor.blueColor().CGColor)
+            drawView(sampleSolutionOrigin_X, sampleSolutionOrigin_Y, availableWidth * x/y, 50, imageName, puzzleView, UIColor.redColor(), UIColor.blueColor().CGColor)
             
             sampleSolutionOrigin_X = sampleSolutionOrigin_X + availableWidth * x/y
         }
@@ -250,7 +250,13 @@ class FractionTilesVer3ViewController: UIViewController {
             var m = getNumDen(solutionViews[temp_x])
             let x = CGFloat(NSNumberFormatter().numberFromString(m[0])!)
             let y = CGFloat(NSNumberFormatter().numberFromString(m[1])!)
+            
+            tagX = Int(x)
+            tagY = Int(y)
+            
+            print("In drawSolutionButtonViews - X, Y", tagX, tagY)
 
+            let imageName = getFractionImage(String(Int(x)), String(Int(y)))
             
             let solutionButtonViewOrigin_X = initialSolutionButtonViewOrigin_X + solutionButtonSeparatorX * CGFloat(temp_x % 2)
             
@@ -259,7 +265,7 @@ class FractionTilesVer3ViewController: UIViewController {
             //print("Button X, Y ", "\(temp_x)", "\(solutionButtonViewOrigin_X)", "\(solutionButtonViewOrigin_Y)")
 
             
-            drawView(solutionButtonViewOrigin_X, solutionButtonViewOrigin_Y, availableWidth * x/y, 50, solutionViews[temp_x], solutionButtonsView ,UIColor.redColor(), UIColor.blueColor().CGColor)
+            drawView(solutionButtonViewOrigin_X, solutionButtonViewOrigin_Y, availableWidth * x/y, 50, imageName, solutionButtonsView ,UIColor.redColor(), UIColor.blueColor().CGColor)
             
             
         }
@@ -287,21 +293,26 @@ class FractionTilesVer3ViewController: UIViewController {
         
         let sampleSolutionView = UIImageView(frame: CGRectMake(origin_X, origin_Y, width, height))
         
-        sampleSolutionView.layer.borderWidth = 1
-        sampleSolutionView.layer.borderColor = viewBorderColor
-        sampleSolutionView.backgroundColor = viewColor
+        //sampleSolutionView.layer.borderWidth = 1
+        //sampleSolutionView.layer.borderColor = viewBorderColor
+        //sampleSolutionView.backgroundColor = viewColor
         
-        let label = UILabel(frame: CGRectMake(0, 12.5, 30, 20))
-        label.font = UIFont(name: label.font.fontName, size: 12)
-        label.textColor = UIColor.whiteColor()
-        label.text = labelText
+        //let label = UILabel(frame: CGRectMake(0, 12.5, 30, 20))
+        //label.font = UIFont(name: label.font.fontName, size: 12)
+        //label.textColor = UIColor.whiteColor()
+        //label.text = labelText
+        
+        sampleSolutionView.image = UIImage(named: labelText)
+        print(labelText)
         
         let solutionTapGestureRecognizer = UITapGestureRecognizer(target: self, action:Selector("solutionTapped:"))
         sampleSolutionView.userInteractionEnabled = true
         parentView.userInteractionEnabled = true
         sampleSolutionView.addGestureRecognizer(solutionTapGestureRecognizer)
         
-        sampleSolutionView.addSubview(label)
+        sampleSolutionView.tag = tagY
+        
+        //sampleSolutionView.addSubview(label)
         parentView.addSubview(sampleSolutionView)
         self.view.addSubview(parentView)
         
@@ -312,12 +323,16 @@ class FractionTilesVer3ViewController: UIViewController {
         print("Tapped on solution view: ", "\(gestureRecognizer.view)")
         
         let width = gestureRecognizer.view!.frame.width
+        let tag = gestureRecognizer.view!.tag
         
         
         // Call your pangesturerecognizer function here
         
         print("\(gestureRecognizer.view!.frame.width)")
-        drawView(viewTappedOrigin_X, viewTappedOrigin_Y, width, 50, "", puzzleView, UIColor.brownColor(), UIColor.whiteColor().CGColor)
+        
+        let imageName = String("1_") + String(tag) + String(".png")
+        
+        drawView(viewTappedOrigin_X, viewTappedOrigin_Y, width, 50, imageName, puzzleView, UIColor.brownColor(), UIColor.whiteColor().CGColor)
         gestureRecognizer.view?.removeFromSuperview()
         
         // End calling your function
