@@ -34,7 +34,7 @@ class FractionTilesVer3ViewController: UIViewController {
     var sampleSolutionOrigin_Y: CGFloat = 80
     
     var initialSolutionButtonViewOrigin_X: CGFloat = 20
-    var initialSolutionButtonViewOrigin_Y: CGFloat = 50
+    var initialSolutionButtonViewOrigin_Y: CGFloat = 80
     
     var solutionButtonSeparatorY: CGFloat = 70
     var solutionButtonSeparatorX: CGFloat = 320 / 2 + 20
@@ -60,13 +60,14 @@ class FractionTilesVer3ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         puzzleView = UIImageView(frame: CGRectMake(0,0, CGFloat(availableWidth),100))
-        solutionButtonsView = UIImageView(frame: CGRectMake(0, 400, 415, 400))
+        solutionButtonsView = UIImageView(frame: CGRectMake(0, 300, 415, 500))
         solutionButtonsView.backgroundColor = UIColor.lightGrayColor()
         
         initializeAllArrays()
         getSampleSolution()
         drawSolutionButtonViews()
         drawSolutionOutlineView()
+        displayPuzzleStatement()
        
     }
     
@@ -200,6 +201,16 @@ class FractionTilesVer3ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func displayPuzzleStatement(){
+        var puzzleStatement: UILabel!
+        puzzleStatement = UILabel(frame: CGRectMake(20, 30, 380, 50))
+        puzzleStatement.text = "Build " + fractionArray[randomFractionIndex] + ". See sample answer below"
+        puzzleStatement.font = UIFont(descriptor: UIFontDescriptor(name: "Verdana", size: 18), size: 18)
+        puzzleStatement.textColor = UIColor.blueColor()
+        puzzleView.addSubview(puzzleStatement)
+        
+    }
+    
     
     func getSampleSolution(){
         randomFractionIndex = Int(arc4random_uniform(UInt32(fractionArray.count)))
@@ -224,7 +235,7 @@ class FractionTilesVer3ViewController: UIViewController {
             let imageName = getFractionImage(String(x), String(y))
             
             
-            drawView(sampleSolutionOrigin_X, sampleSolutionOrigin_Y, availableWidth * x/y, 50, imageName, puzzleView, UIColor.redColor(), UIColor.blueColor().CGColor)
+            drawView(sampleSolutionOrigin_X, sampleSolutionOrigin_Y, availableWidth * x/y, 50, tempSampSol[temp_x], puzzleView, UIColor.redColor(), UIColor.blueColor().CGColor)
             
             sampleSolutionOrigin_X = sampleSolutionOrigin_X + availableWidth * x/y
         }
@@ -301,9 +312,16 @@ class FractionTilesVer3ViewController: UIViewController {
         print("Tapped on solution view: ", "\(gestureRecognizer.view)")
         
         let width = gestureRecognizer.view!.frame.width
+        
+        
+        // Call your pangesturerecognizer function here
+        
         print("\(gestureRecognizer.view!.frame.width)")
         drawView(viewTappedOrigin_X, viewTappedOrigin_Y, width, 50, "", puzzleView, UIColor.brownColor(), UIColor.whiteColor().CGColor)
         gestureRecognizer.view?.removeFromSuperview()
+        
+        // End calling your function
+        
         viewTappedOrigin_X = viewTappedOrigin_X + width
         
         checkAnswer()
@@ -331,6 +349,7 @@ class FractionTilesVer3ViewController: UIViewController {
         getSampleSolution()
         drawSolutionButtonViews()
         drawSolutionOutlineView()
+        displayPuzzleStatement()
 
     }
     
