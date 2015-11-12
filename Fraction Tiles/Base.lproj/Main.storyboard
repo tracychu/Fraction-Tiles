@@ -8,36 +8,25 @@
         <!--PlayNow View Controller-->
         <scene sceneID="gJ8-Vp-d5w">
             <objects>
-                <viewController id="pyv-7z-QgN" userLabel="PlayNow View Controller" sceneMemberID="viewController">
+                <viewController id="pyv-7z-QgN" userLabel="PlayNow View Controller" customClass="PlayNowViewController" customModule="Fraction_Tiles" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1eH-VR-qRa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Tiles3" id="6mB-fT-oQC">
-                                <rect key="frame" x="37" y="62" width="300" height="501"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="bg" id="bvy-mG-qzC">
+                                <rect key="frame" x="0.0" y="1" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" id="Mzz-uf-04u">
-                                <rect key="frame" x="67" y="30" width="240" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Welcome to Fraction Tiles">
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="18" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="welcome_tiles" id="511-ku-q4C">
+                                <rect key="frame" x="37" y="70" width="301" height="524"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="welcome_button" id="8fd-0n-beA">
-                                <rect key="frame" x="126" y="602" width="123" height="39"/>
+                                <rect key="frame" x="126" y="612" width="123" height="39"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jOA-a6-sqz">
-                                <rect key="frame" x="126" y="599" width="123" height="45"/>
+                                <rect key="frame" x="126" y="609" width="123" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal">
@@ -47,12 +36,19 @@
                                     <segue destination="Z4M-Kr-yXT" kind="modal" id="LSh-A6-94l"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="welcome_title" id="rrX-OH-nN5">
+                                <rect key="frame" x="44" y="32" width="287" height="20"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.32666087659096177" green="0.43761389593628275" blue="0.79292929292929293" alpha="0.97999999999999998" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="375" height="667"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="backgroundView" destination="1eH-VR-qRa" id="yWa-nY-QgA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KEj-gT-ZNb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -405,7 +401,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Tiles3" width="300" height="450"/>
+        <image name="bg" width="370" height="667"/>
         <image name="welcome_button" width="123" height="39"/>
+        <image name="welcome_tiles" width="301" height="524"/>
+        <image name="welcome_title" width="287" height="20"/>
     </resources>
 </document>
