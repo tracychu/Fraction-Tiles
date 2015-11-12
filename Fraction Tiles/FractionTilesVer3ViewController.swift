@@ -54,8 +54,6 @@ class FractionTilesVer3ViewController: UIViewController {
     var sampleSolutionArray = [String](count: 26, repeatedValue: "1/2, 1/2")
     var solutionArray = [String](count: 26, repeatedValue: "1/2, 1/2")
     
-    var sampleSolutionOulineView: UIView!
-    
     
     
     override func viewDidLoad() {
@@ -282,9 +280,7 @@ class FractionTilesVer3ViewController: UIViewController {
         let x = CGFloat(NSNumberFormatter().numberFromString(solutionOutlineFraction[0])!)
         let y = CGFloat(NSNumberFormatter().numberFromString(solutionOutlineFraction[1])!)
         
-        sampleSolutionOulineView = drawView(solutionOutlineOrigin_X, solutionOutlineOrigin_Y, availableWidth*x/y, 50, "", puzzleView , UIColor.whiteColor(), UIColor.blackColor().CGColor)
-        
-        print("Sample Solution outline view: ",sampleSolutionOulineView)
+        drawView(solutionOutlineOrigin_X, solutionOutlineOrigin_Y, availableWidth*x/y, 50, "", puzzleView , UIColor.whiteColor(), UIColor.blackColor().CGColor)
     }
     
     
@@ -294,7 +290,7 @@ class FractionTilesVer3ViewController: UIViewController {
     }
     
     
-    func drawView(origin_X: CGFloat, _ origin_Y: CGFloat, _ width: CGFloat, _ height: CGFloat, _ labelText: String, _ parentView: UIImageView , _ viewColor: UIColor, _ viewBorderColor: CGColor) -> UIView {
+    func drawView(origin_X: CGFloat, _ origin_Y: CGFloat, _ width: CGFloat, _ height: CGFloat, _ labelText: String, _ parentView: UIImageView , _ viewColor: UIColor, _ viewBorderColor: CGColor){
         
         let sampleSolutionView = UIImageView(frame: CGRectMake(origin_X, origin_Y, width, height))
         
@@ -323,8 +319,6 @@ class FractionTilesVer3ViewController: UIViewController {
         initLocations.updateValue(sampleSolutionView.center, forKey: sampleSolutionView.tag)
         var panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "onTilePan:")
         sampleSolutionView.addGestureRecognizer(panGestureRecognizer)
-        
-        return sampleSolutionView
         
     }
     
