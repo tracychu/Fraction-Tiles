@@ -11,6 +11,7 @@ import UIKit
 
 class ScoreBoardViewController: UIViewController {
     
+    
         var row2 = 0
         var row3 = 0
         var row4 = 0
@@ -25,6 +26,8 @@ class ScoreBoardViewController: UIViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
             // Do any additional setup after loading the view, typically from a nib.
+            
+            print("You are here")
             
             let defaults = NSUserDefaults.standardUserDefaults()
             let ecount1 = defaults.integerForKey("correctScore")
@@ -124,10 +127,14 @@ class ScoreBoardViewController: UIViewController {
             
         }
         
+    @IBAction func onButtonPress(sender: AnyObject) {
+        performSegueWithIdentifier("PlayAgainSegue", sender: self)
+        
+    }
         override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
             // Dispose of any resources that can be recreated.
-        }
-           }
+               }
+ }
     
 

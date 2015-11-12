@@ -110,7 +110,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="29" y="235"/>
+            <point key="canvasLocation" x="125" y="-113"/>
         </scene>
         <!--Fraction Tilesver2 View Controller-->
         <scene sceneID="b2t-Cj-zo2">
@@ -302,12 +302,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yzs-Ru-X5d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1148" y="344"/>
+            <point key="canvasLocation" x="125" y="526"/>
         </scene>
-        <!--View Controller-->
+        <!--Score Board View Controller-->
         <scene sceneID="Beb-EW-Hxs">
             <objects>
-                <viewController id="hEL-aD-Zv7" sceneMemberID="viewController">
+                <viewController id="hEL-aD-Zv7" customClass="ScoreBoardViewController" customModule="Fraction_Tiles" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8O6-es-WrX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -316,6 +316,10 @@
                                 <rect key="frame" x="114" y="526" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Play Again"/>
+                                <connections>
+                                    <action selector="onButtonPress:" destination="hEL-aD-Zv7" eventType="touchUpInside" id="75c-HY-BtF"/>
+                                    <segue destination="Z4M-Kr-yXT" kind="modal" identifier="PlayAgainSegue" id="gbs-g1-ts4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -323,7 +327,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iXH-Rl-MRU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-410" y="1287"/>
+            <point key="canvasLocation" x="-1244" y="1183"/>
         </scene>
         <!--Fraction Tiles Ver3 View Controller-->
         <scene sceneID="7G4-xV-aby">
@@ -353,7 +357,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hnv-ML-FVv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-383" y="487"/>
+            <point key="canvasLocation" x="-765" y="393"/>
         </scene>
     </scenes>
     <resources>
@@ -362,4 +366,7 @@
         <image name="welcome_tiles" width="301" height="524"/>
         <image name="welcome_title" width="287" height="20"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="gbs-g1-ts4"/>
+    </inferredMetricsTieBreakers>
 </document>

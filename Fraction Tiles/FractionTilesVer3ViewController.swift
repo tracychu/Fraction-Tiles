@@ -395,11 +395,14 @@ class FractionTilesVer3ViewController: UIViewController {
             alertWrong.show()
         }
         else if(Int(viewTappedOrigin_X) == Int(puzzleWidth + 20)) {
-            let alertRight = UIAlertView()
-            alertRight.title = "Congratulations"
-            alertRight.message = "That's the right Answer"
-            alertRight.addButtonWithTitle("OK")
-            alertRight.show()
+//            let alertRight = UIAlertView()
+//            alertRight.title = "Congratulations"
+//            alertRight.message = "That's the right Answer"
+//            alertRight.addButtonWithTitle("OK")
+//            alertRight.show()
+            
+// Promeet score check
+            
             var defaults = NSUserDefaults.standardUserDefaults()
             var currentScore = defaults.integerForKey("correctScore")
             currentScore = currentScore+1
