@@ -29,6 +29,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     var setMaxX: CGFloat!
     var sumOfWidth: CGFloat!
     var oneEighthTile2: UIView!
+    var initLocations = Dictionary<Int,CGPoint>()
     
     
     
@@ -55,6 +56,21 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         oneEighthTile2.userInteractionEnabled = true
         initoneEighthTile2 = oneEighthTile2.center
         var panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "onTilePan:")
+        
+        var panGestureRecognizerOrig = UIPanGestureRecognizer(target: self, action: "onTilePan:")
+        oneEighthTile.addGestureRecognizer(panGestureRecognizerOrig)
+        halfTile.tag = 0
+        quarterTile.tag = 1
+        oneEighthTile.tag = 2
+        oneEighthTile2.tag = 3
+        initLocations.updateValue(halfTile.center, forKey: halfTile.tag)
+        initLocations.updateValue(quarterTile.center, forKey: quarterTile.tag)
+        initLocations.updateValue(oneEighthTile.center, forKey: oneEighthTile.tag)
+        initLocations.updateValue(oneEighthTile2.center, forKey: oneEighthTile2.tag)
+        for (var initKey, var initLoc) in initLocations {
+            print("\(initKey) \t \(initLoc)")
+        }
+        
         
         oneEighthTile2.addGestureRecognizer(panGestureRecognizer)
        // panGestureRecognizer.delegate = self
@@ -287,7 +303,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     func onTilePan(sender: UIPanGestureRecognizer) {
         // Absolute (x,y) coordinates in parent view
-        let halfTileLocation = sender.locationInView(halfTile)
+        let TileLocation = sender.locationInView(sender.view)
         
         // Relative change in (x,y) coordinates from where gesture began.
         var translation = sender.translationInView(view)
@@ -297,14 +313,18 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             //print("Gesture began at: \(messageLocation)")
             
         } else if sender.state == UIGestureRecognizerState.Changed {
-            oneEighthTile2.center = CGPoint(x: initoneEighthTile2.x+translation.x, y: initoneEighthTile2.y+translation.y)
+            // Get the initial position of the View
+            let viewInitX = initLocations[sender.view!.tag]?.x
+            let viewInitY = initLocations[sender.view!.tag]?.y
+
+            sender.view?.center = CGPoint(x: viewInitX!+translation.x, y: viewInitY!+translation.y)
             
             
         } else if sender.state == UIGestureRecognizerState.Ended {
             
            print("view loc y :\(sender.view?.frame.origin.y)")
         
-            if problemTile.frame.contains(oneEighthTile2.frame.origin) {
+            if problemTile.frame.contains((sender.view?.frame.origin)!) {
                 
                 UIView.animateWithDuration(0.3, animations: { () -> Void in
                     
@@ -312,19 +332,19 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                     //self.oneEighthTile2.frame.origin = CGPoint(x: self.quarterTile.frame.maxX, y: self.quarterTile.frame.minY)
                     
                     if (self.tilePos == 0) {
-                        self.oneEighthTile2.frame.origin = self.problemTile.frame.origin
-                        self.posWidth.append(self.oneEighthTile2.frame.width)
-                        self.fractionTileViews.append(self.oneEighthTile2)
+                        sender.view?.frame.origin = self.problemTile.frame.origin
+                        self.posWidth.append(sender.view!.frame.width)
+                        self.fractionTileViews.append(sender.view!)
                     } else {
                         self.sumOfWidth = 0
                         for (var i = 0; i < self.posWidth.count ; i++) {
                             self.sumOfWidth = self.sumOfWidth+self.posWidth[i]
                         }
                         
-                        self.oneEighthTile2.frame.origin = CGPoint(x: self.problemTile.frame.origin.x + self.sumOfWidth, y:
+                        sender.view?.frame.origin = CGPoint(x: self.problemTile.frame.origin.x + self.sumOfWidth, y:
                             self.problemTile.frame.minY)
-                        self.posWidth.append(self.oneEighthTile2.frame.width)
-                        self.fractionTileViews.append(self.oneEighthTile2)
+                        self.posWidth.append((sender.view?.frame.width)!)
+                        self.fractionTileViews.append(sender.view!)
                         
                     }
                     
@@ -333,10 +353,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                 
             } else {
                 UIView.animateWithDuration(0.3, animations: { () -> Void in
-                    self.oneEighthTile2.center = self.initoneEighthTile2
+                    sender.view?.center = initLocations[(sender.view?.tag)!]!
                 })
                 for (var i = 0; i < self.posWidth.count ; i++) {
-                    if (self.posWidth[i]) == self.oneEighthTile2.frame.width {
+                    if (self.posWidth[i] == sender.view?.frame.width) {
                         self.posWidth.removeAtIndex(i)
                         self.tilePos = self.tilePos - 1
                         print("Value of index \(i)")
@@ -345,7 +365,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                         print("Value of fractionTileView index \(self.fractionTileViews.count)")
                         for (var j = i ; j < self.fractionTileViews.count; j++){
                             
-                            self.fractionTileViews[j].frame.origin = CGPoint(x: self.fractionTileViews[j].frame.origin.x - self.oneEighthTile2.frame.width, y: self.problemTile.frame.minY)
+                            self.fractionTileViews[j].frame.origin = CGPoint(x: self.fractionTileViews[j].frame.origin.x - (sender.view?.frame.width)!, y: self.problemTile.frame.minY)
                         }
                     }
                     

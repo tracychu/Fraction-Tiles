@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="pyv-7z-QgN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="pyv-7z-QgN">
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -8,25 +8,22 @@
         <!--PlayNow View Controller-->
         <scene sceneID="gJ8-Vp-d5w">
             <objects>
-                <viewController id="pyv-7z-QgN" userLabel="PlayNow View Controller" sceneMemberID="viewController">
+                <viewController id="pyv-7z-QgN" userLabel="PlayNow View Controller" customClass="PlayNowViewController" customModule="Fraction_Tiles" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1eH-VR-qRa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pXs-yZ-gdj">
-                                <rect key="frame" x="10" y="582" width="78" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="Play Now">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="modal" id="oq8-6s-M5U"/>
-                                </connections>
-                            </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Tiles3" id="6mB-fT-oQC">
-                                <rect key="frame" x="37" y="62" width="300" height="501"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="bg" id="bvy-mG-qzC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="welcome_tiles" id="511-ku-q4C">
+                                <rect key="frame" x="37" y="70" width="301" height="524"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="welcome_button" id="8fd-0n-beA">
+                                <rect key="frame" x="126" y="612" width="123" height="39"/>
+                                <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" id="Mzz-uf-04u">
                                 <rect key="frame" x="67" y="30" width="240" height="30"/>
@@ -52,18 +49,22 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jOA-a6-sqz">
-                                <rect key="frame" x="247" y="583" width="123" height="29"/>
+                                <rect key="frame" x="126" y="609" width="123" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="Play Now (v3)">
+                                <state key="normal">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Z4M-Kr-yXT" kind="modal" id="LSh-A6-94l"/>
+                                    <segue destination="Z4M-Kr-yXT" kind="modal" modalTransitionStyle="crossDissolve" id="LSh-A6-94l"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="welcome_title" id="rrX-OH-nN5">
+                                <rect key="frame" x="44" y="32" width="287" height="20"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.32666087659096177" green="0.43761389593628275" blue="0.79292929292929293" alpha="0.97999999999999998" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="375" height="667"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -100,9 +101,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96516716560032689" green="0.59586944626667049" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="4Ai-cs-T0k" appends="YES" id="0je-Yq-JZc"/>
-                                </connections>
                             </view>
                             <view contentMode="scaleToFill" id="ILw-WZ-dvT">
                                 <rect key="frame" x="40" y="302" width="60" height="50"/>
@@ -132,11 +130,6 @@
                 <panGestureRecognizer minimumNumberOfTouches="1" id="0Vc-XZ-AtJ" userLabel="Quarter Tile Pan Gesture Recognizer">
                     <connections>
                         <action selector="onquarterTilePan:" destination="BYZ-38-t0r" id="ARM-T6-Otg"/>
-                    </connections>
-                </panGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="4Ai-cs-T0k" userLabel="One Eight Tile Pan Gesture Recognizer">
-                    <connections>
-                        <action selector="onOneEighthTilePan:" destination="BYZ-38-t0r" id="SOG-m9-xWY"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>
@@ -215,6 +208,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="hEL-aD-Zv7" kind="modal" identifier="scoreBoardSegue" id="vUu-mD-WkE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hnv-ML-FVv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -222,9 +218,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Tiles3" width="300" height="450"/>
+        <image name="bg" width="370" height="667"/>
+        <image name="welcome_button" width="123" height="39"/>
+        <image name="welcome_tiles" width="301" height="524"/>
+        <image name="welcome_title" width="287" height="20"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="oq8-6s-M5U"/>
-    </inferredMetricsTieBreakers>
 </document>
