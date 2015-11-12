@@ -28,8 +28,9 @@ class ScoreBoardViewController: UIViewController {
             
             let defaults = NSUserDefaults.standardUserDefaults()
             let ecount1 = defaults.integerForKey("correctScore")
-           
-              let ecount = integer_t(ecount1-1)
+             print(ecount1)
+            
+            let ecount = integer_t(ecount1-1)
             
               for i in 0...ecount {
                 print(i)
