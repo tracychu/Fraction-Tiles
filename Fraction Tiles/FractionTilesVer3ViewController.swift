@@ -48,6 +48,7 @@ class FractionTilesVer3ViewController: UIViewController {
     
     var tagX: Int = 0
     var tagY: Int = 0
+    var initLocations = Dictionary<Int, CGPoint>()
     
     var fractionArray = [String](count: 26, repeatedValue: "1/2")
     var sampleSolutionArray = [String](count: 26, repeatedValue: "1/2, 1/2")
@@ -315,6 +316,9 @@ class FractionTilesVer3ViewController: UIViewController {
         //sampleSolutionView.addSubview(label)
         parentView.addSubview(sampleSolutionView)
         self.view.addSubview(parentView)
+        initLocations.updateValue(sampleSolutionView.center, forKey: sampleSolutionView.tag)
+        var panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "onTilePan:")
+        sampleSolutionView.addGestureRecognizer(panGestureRecognizer)
         
     }
     

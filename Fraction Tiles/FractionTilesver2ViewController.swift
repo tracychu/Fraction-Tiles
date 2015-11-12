@@ -25,6 +25,7 @@ class FractionTilesver2ViewController: UIViewController {
     var puzzleLabel: UILabel!
     
     var puzzleWidth: CGFloat!
+    var oneEighthTileView: UIView!
     
     
     var fractionArray = ["1/2", "1/3", "2/3", "1/4", "3/4", "1/5", "2/5", "3/5", "4/5", "1/6", "5/6", "3/8"]
@@ -43,16 +44,16 @@ class FractionTilesver2ViewController: UIViewController {
         setPuzzle(0, 1)
         var frameView = CGRect(x: 60, y: 252, width: 30, height: 50)
         
-        oneEighthTileView = UIView(frame: frameView)
-        oneEighthTileView.backgroundColor = UIColor.init(red: 0.4, green: 0, blue: 0.0, alpha: 1.0)
+     //   oneEighthTileView = UIView(frame: frameView)
+    //    oneEighthTileView.backgroundColor = UIColor.init(red: 0.4, green: 0, blue: 0.0, alpha: 1.0)
         
         //  oneEighthTileView.backgroundColor = UIColor.init(white: 0.8, alpha: 1.0)
-        solutionTilesView.addSubview(oneEighthTileView)
-        oneEighthTileView.userInteractionEnabled = true
-        initoneEighthTileView = oneEighthTileView.center
-        var panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "onTilePan:")
+    //    solutionTilesView.addSubview(oneEighthTileView)
+   //     oneEighthTileView.userInteractionEnabled = true
+      //  initoneEighthTileView = oneEighthTileView.center
+  //      var panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "onTilePan:")
         
-        oneEighthTileView.addGestureRecognizer(panGestureRecognizer)
+//        oneEighthTileView.addGestureRecognizer(panGestureRecognizer)
 
         
     }
@@ -266,9 +267,9 @@ class FractionTilesver2ViewController: UIViewController {
     }
     
     
-    func onTilePan(sender: UIPanGestureRecognizer) {
-        print("Here in pan")
-    }
+   // func onTilePan(sender: UIPanGestureRecognizer) {
+     //   print("Here in pan")
+   // }
     
     /*
     // MARK: - Navigation

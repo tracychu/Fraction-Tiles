@@ -103,9 +103,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96516716560032689" green="0.59586944626667049" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="4Ai-cs-T0k" appends="YES" id="0je-Yq-JZc"/>
-                                </connections>
                             </view>
                             <view contentMode="scaleToFill" id="ILw-WZ-dvT">
                                 <rect key="frame" x="40" y="302" width="60" height="50"/>
@@ -135,11 +132,6 @@
                 <panGestureRecognizer minimumNumberOfTouches="1" id="0Vc-XZ-AtJ" userLabel="Quarter Tile Pan Gesture Recognizer">
                     <connections>
                         <action selector="onquarterTilePan:" destination="BYZ-38-t0r" id="ARM-T6-Otg"/>
-                    </connections>
-                </panGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="4Ai-cs-T0k" userLabel="One Eight Tile Pan Gesture Recognizer">
-                    <connections>
-                        <action selector="onOneEighthTilePan:" destination="BYZ-38-t0r" id="SOG-m9-xWY"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>
