@@ -32,8 +32,12 @@
                                 </attributedString>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="welcome_button" id="8fd-0n-beA">
+                                <rect key="frame" x="126" y="602" width="123" height="39"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jOA-a6-sqz">
-                                <rect key="frame" x="124" y="574" width="123" height="45"/>
+                                <rect key="frame" x="126" y="599" width="123" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal">
@@ -43,10 +47,6 @@
                                     <segue destination="Z4M-Kr-yXT" kind="modal" id="LSh-A6-94l"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="welcome_button" id="8fd-0n-beA">
-                                <rect key="frame" x="124" y="577" width="123" height="39"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.32666087659096177" green="0.43761389593628275" blue="0.79292929292929293" alpha="0.97999999999999998" colorSpace="calibratedRGB"/>
                     </view>
