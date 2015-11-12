@@ -7,18 +7,9 @@
 //
 
 
-
 import UIKit
 
 class ScoreBoardViewController: UIViewController {
-
-    //
-    //  ViewController.swift
-    //  GifGenerate
-    //
-    //  Created by Promeet Mansata on 11/5/15.
-    //  Copyright © 2015 Promeet Mansata. All rights reserved.
-    //
     
         var row2 = 0
         var row3 = 0
@@ -34,21 +25,11 @@ class ScoreBoardViewController: UIViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
             // Do any additional setup after loading the view, typically from a nib.
-        }
-        
-        override func didReceiveMemoryWarning() {
-            super.didReceiveMemoryWarning()
-            // Dispose of any resources that can be recreated.
-        }
-        
-        
-
-        
-        @IBAction func OnButtonPress(sender: AnyObject) {
             
-            var ecount1 = NSString(string: EmojiCount.text!).doubleValue
-            var ecount = integer_t(ecount1-1)
-            for i in 0...ecount {
+            let defaults = NSUserDefaults.standardUserDefaults()
+            let ecount1 = defaults.integerForKey("correctScore")
+           
+              var ecount = integer_t(ecount1-1)             for i in 0...ecount {
                 print(i)
                 
                 if CGFloat(i) <= 5
@@ -137,7 +118,13 @@ class ScoreBoardViewController: UIViewController {
                     row10 = row10 + 1
                 }
             }
+            
         }
-    }
+        
+        override func didReceiveMemoryWarning() {
+            super.didReceiveMemoryWarning()
+            // Dispose of any resources that can be recreated.
+        }
+           }
     
 

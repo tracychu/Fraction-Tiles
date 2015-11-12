@@ -400,6 +400,12 @@ class FractionTilesVer3ViewController: UIViewController {
             alertRight.message = "That's the right Answer"
             alertRight.addButtonWithTitle("OK")
             alertRight.show()
+            var defaults = NSUserDefaults.standardUserDefaults()
+            var currentScore = defaults.integerForKey("correctScore")
+            currentScore = currentScore+1
+            defaults.setInteger(currentScore, forKey: "correctScore")
+            defaults.synchronize()
+            performSegueWithIdentifier("scoreBoardSegue", sender: self)
         }
     }
     

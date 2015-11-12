@@ -365,12 +365,19 @@
                     <view key="view" contentMode="scaleToFill" id="8O6-es-WrX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lcj-4N-PbZ">
+                                <rect key="frame" x="114" y="526" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Play Again"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iXH-Rl-MRU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-383" y="1167"/>
+            <point key="canvasLocation" x="-410" y="1287"/>
         </scene>
         <!--Fraction Tiles Ver3 View Controller-->
         <scene sceneID="7G4-xV-aby">
@@ -394,6 +401,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="hEL-aD-Zv7" kind="modal" identifier="scoreBoardSegue" id="vUu-mD-WkE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hnv-ML-FVv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
