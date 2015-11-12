@@ -33,7 +33,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Z4M-Kr-yXT" kind="modal" id="LSh-A6-94l"/>
+                                    <segue destination="Z4M-Kr-yXT" kind="modal" modalTransitionStyle="crossDissolve" id="LSh-A6-94l"/>
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="welcome_title" id="rrX-OH-nN5">
