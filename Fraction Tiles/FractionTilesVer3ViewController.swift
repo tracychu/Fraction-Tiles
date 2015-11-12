@@ -53,6 +53,8 @@ class FractionTilesVer3ViewController: UIViewController {
     var sampleSolutionArray = [String](count: 26, repeatedValue: "1/2, 1/2")
     var solutionArray = [String](count: 26, repeatedValue: "1/2, 1/2")
     
+    var sampleSolutionOulineView: UIView!
+    
     
     
     override func viewDidLoad() {
@@ -279,7 +281,9 @@ class FractionTilesVer3ViewController: UIViewController {
         let x = CGFloat(NSNumberFormatter().numberFromString(solutionOutlineFraction[0])!)
         let y = CGFloat(NSNumberFormatter().numberFromString(solutionOutlineFraction[1])!)
         
-        drawView(solutionOutlineOrigin_X, solutionOutlineOrigin_Y, availableWidth*x/y, 50, "", puzzleView , UIColor.whiteColor(), UIColor.blackColor().CGColor)
+        sampleSolutionOulineView = drawView(solutionOutlineOrigin_X, solutionOutlineOrigin_Y, availableWidth*x/y, 50, "", puzzleView , UIColor.whiteColor(), UIColor.blackColor().CGColor)
+        
+        print("Sample Solution outline view: ",sampleSolutionOulineView)
     }
     
     
@@ -289,7 +293,7 @@ class FractionTilesVer3ViewController: UIViewController {
     }
     
     
-    func drawView(origin_X: CGFloat, _ origin_Y: CGFloat, _ width: CGFloat, _ height: CGFloat, _ labelText: String, _ parentView: UIImageView , _ viewColor: UIColor, _ viewBorderColor: CGColor){
+    func drawView(origin_X: CGFloat, _ origin_Y: CGFloat, _ width: CGFloat, _ height: CGFloat, _ labelText: String, _ parentView: UIImageView , _ viewColor: UIColor, _ viewBorderColor: CGColor) -> UIView {
         
         let sampleSolutionView = UIImageView(frame: CGRectMake(origin_X, origin_Y, width, height))
         
@@ -315,6 +319,8 @@ class FractionTilesVer3ViewController: UIViewController {
         //sampleSolutionView.addSubview(label)
         parentView.addSubview(sampleSolutionView)
         self.view.addSubview(parentView)
+        
+        return sampleSolutionView
         
     }
     
