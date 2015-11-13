@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A83640F1BF5E2E600940B8E /* Correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9A83640E1BF5E2E600940B8E /* Correct.wav */; settings = {ASSET_TAGS = (); }; };
+		9A8364111BF5E2EE00940B8E /* Wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9A8364101BF5E2EE00940B8E /* Wrong.wav */; settings = {ASSET_TAGS = (); }; };
+		9A8364131BF5E2FF00940B8E /* Click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9A8364121BF5E2FF00940B8E /* Click.mp3 */; settings = {ASSET_TAGS = (); }; };
 		9A8DB79D1BE288EE00C25C09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8DB79C1BE288EE00C25C09 /* AppDelegate.swift */; };
 		9A8DB79F1BE288EE00C25C09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8DB79E1BE288EE00C25C09 /* ViewController.swift */; };
 		9A8DB7A21BE288EE00C25C09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A8DB7A01BE288EE00C25C09 /* Main.storyboard */; };
@@ -37,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A83640E1BF5E2E600940B8E /* Correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Correct.wav; path = ../../../../Downloads/Correct.wav; sourceTree = "<group>"; };
+		9A8364101BF5E2EE00940B8E /* Wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Wrong.wav; path = ../../../../Downloads/Wrong.wav; sourceTree = "<group>"; };
+		9A8364121BF5E2FF00940B8E /* Click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Click.mp3; path = ../../../../Downloads/Click.mp3; sourceTree = "<group>"; };
 		9A8DB7991BE288EE00C25C09 /* Fraction Tiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fraction Tiles.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A8DB79C1BE288EE00C25C09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A8DB79E1BE288EE00C25C09 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +86,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A83640D1BF5E2C700940B8E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9A8364101BF5E2EE00940B8E /* Wrong.wav */,
+				9A8364121BF5E2FF00940B8E /* Click.mp3 */,
+				9A83640E1BF5E2E600940B8E /* Correct.wav */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		9A8DB7901BE288EE00C25C09 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +119,7 @@
 		9A8DB79B1BE288EE00C25C09 /* Fraction Tiles */ = {
 			isa = PBXGroup;
 			children = (
+				9A83640D1BF5E2C700940B8E /* Supporting Files */,
 				9A8DB79C1BE288EE00C25C09 /* AppDelegate.swift */,
 				9A8DB79E1BE288EE00C25C09 /* ViewController.swift */,
 				9A8DB7A01BE288EE00C25C09 /* Main.storyboard */,
@@ -238,7 +255,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A8DB7A71BE288EE00C25C09 /* LaunchScreen.storyboard in Resources */,
+				9A8364131BF5E2FF00940B8E /* Click.mp3 in Resources */,
+				9A83640F1BF5E2E600940B8E /* Correct.wav in Resources */,
 				9A8DB7A41BE288EE00C25C09 /* Assets.xcassets in Resources */,
+				9A8364111BF5E2EE00940B8E /* Wrong.wav in Resources */,
 				9A8DB7A21BE288EE00C25C09 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
