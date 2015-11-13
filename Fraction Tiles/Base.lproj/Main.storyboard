@@ -8,7 +8,7 @@
         <!--PlayNow View Controller-->
         <scene sceneID="gJ8-Vp-d5w">
             <objects>
-                <viewController id="pyv-7z-QgN" userLabel="PlayNow View Controller" customClass="PlayNowViewController" customModule="Fraction_Tiles" sceneMemberID="viewController">
+                <viewController id="pyv-7z-QgN" userLabel="PlayNow View Controller" customClass="MainPageViewController" customModule="Fraction_Tiles" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1eH-VR-qRa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -388,6 +388,6 @@
         <image name="welcome_title" width="287" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XEh-VO-BjH"/>
+        <segue reference="LSh-A6-94l"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -15,8 +15,8 @@
 		9A8DB7B21BE288EE00C25C09 /* Fraction_TilesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8DB7B11BE288EE00C25C09 /* Fraction_TilesTests.swift */; };
 		9A8DB7BD1BE288EE00C25C09 /* Fraction_TilesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8DB7BC1BE288EE00C25C09 /* Fraction_TilesUITests.swift */; };
 		D20908791BEEA7AB00DB048F /* FractionTilesVer3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20908781BEEA7AB00DB048F /* FractionTilesVer3ViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		ED36B59C1BF5132200A839E3 /* ScoreBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED36B59B1BF5132200A839E3 /* ScoreBoardViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		ED36B59E1BF562D800A839E3 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED36B59D1BF562D800A839E3 /* ScoreViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		ED36B5A01BF56D7000A839E3 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED36B59F1BF56D7000A839E3 /* MainPageViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,8 +51,8 @@
 		9A8DB7BC1BE288EE00C25C09 /* Fraction_TilesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fraction_TilesUITests.swift; sourceTree = "<group>"; };
 		9A8DB7BE1BE288EE00C25C09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D20908781BEEA7AB00DB048F /* FractionTilesVer3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FractionTilesVer3ViewController.swift; sourceTree = "<group>"; };
-		ED36B59B1BF5132200A839E3 /* ScoreBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreBoardViewController.swift; sourceTree = "<group>"; };
 		ED36B59D1BF562D800A839E3 /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
+		ED36B59F1BF56D7000A839E3 /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +106,7 @@
 				9A8DB79C1BE288EE00C25C09 /* AppDelegate.swift */,
 				9A8DB79E1BE288EE00C25C09 /* ViewController.swift */,
 				9A8DB7A01BE288EE00C25C09 /* Main.storyboard */,
-				ED36B59B1BF5132200A839E3 /* ScoreBoardViewController.swift */,
+				ED36B59F1BF56D7000A839E3 /* MainPageViewController.swift */,
 				ED36B59D1BF562D800A839E3 /* ScoreViewController.swift */,
 				D20908781BEEA7AB00DB048F /* FractionTilesVer3ViewController.swift */,
 				9A8DB7A31BE288EE00C25C09 /* Assets.xcassets */,
@@ -264,10 +264,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED36B5A01BF56D7000A839E3 /* MainPageViewController.swift in Sources */,
 				D20908791BEEA7AB00DB048F /* FractionTilesVer3ViewController.swift in Sources */,
 				9A8DB79F1BE288EE00C25C09 /* ViewController.swift in Sources */,
 				ED36B59E1BF562D800A839E3 /* ScoreViewController.swift in Sources */,
-				ED36B59C1BF5132200A839E3 /* ScoreBoardViewController.swift in Sources */,
 				9A8DB79D1BE288EE00C25C09 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
