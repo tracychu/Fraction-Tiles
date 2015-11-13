@@ -304,41 +304,51 @@
             </objects>
             <point key="canvasLocation" x="125" y="526"/>
         </scene>
-        <!--Score Board View Controller-->
-        <scene sceneID="Beb-EW-Hxs">
+        <!--Score View Controller-->
+        <scene sceneID="oNa-ne-t0a">
             <objects>
-                <viewController id="hEL-aD-Zv7" customClass="ScoreBoardViewController" customModule="Fraction_Tiles" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8O6-es-WrX">
+                <viewController id="mB1-vM-zqa" customClass="ScoreViewController" customModule="Fraction_Tiles" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IB5-6C-ljG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="bg" id="qLz-Nh-I2l">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="bg" id="Vlk-sc-OS4">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lcj-4N-PbZ">
-                                <rect key="frame" x="128" y="590" width="71" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="95q-rE-0QN">
+                                <rect key="frame" x="131" y="518" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Play Again"/>
                                 <connections>
-                                    <action selector="onButtonPress:" destination="hEL-aD-Zv7" eventType="touchUpInside" id="75c-HY-BtF"/>
-                                    <segue destination="Z4M-Kr-yXT" kind="modal" identifier="PlayAgainSegue" id="gbs-g1-ts4"/>
+                                    <action selector="onButtonPress:" destination="mB1-vM-zqa" eventType="touchUpInside" id="QrO-Cm-Jwr"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Current Score is!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rVo-i1-1fc">
-                                <rect key="frame" x="20" y="30" width="168" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your current score is!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Z3M-h8-FhZ">
+                                <rect key="frame" x="13" y="14" width="173" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.1647058824" green="0.29411764709999999" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mf8-HR-FW7">
+                                <rect key="frame" x="194" y="25" width="79" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.12549019610000001" green="0.2156862745" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="yourScore" destination="mf8-HR-FW7" id="Z86-1b-Lja"/>
+                        <segue destination="Z4M-Kr-yXT" kind="modal" identifier="PlayAgainSegue" id="XEh-VO-BjH"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iXH-Rl-MRU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ECY-VE-wHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1200.5" y="1106.5"/>
+            <point key="canvasLocation" x="-877" y="435"/>
         </scene>
         <!--Fraction Tiles Ver3 View Controller-->
         <scene sceneID="7G4-xV-aby">
@@ -363,12 +373,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="hEL-aD-Zv7" kind="modal" identifier="scoreBoardSegue" id="vUu-mD-WkE"/>
+                        <segue destination="mB1-vM-zqa" kind="modal" identifier="scoreBoardSegue" id="WN0-Ea-NOz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hnv-ML-FVv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-765" y="393"/>
+            <point key="canvasLocation" x="-398" y="394"/>
         </scene>
     </scenes>
     <resources>
@@ -378,6 +388,6 @@
         <image name="welcome_title" width="287" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gbs-g1-ts4"/>
+        <segue reference="XEh-VO-BjH"/>
     </inferredMetricsTieBreakers>
 </document>
