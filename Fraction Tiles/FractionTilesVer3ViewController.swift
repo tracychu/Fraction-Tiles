@@ -34,7 +34,7 @@ class FractionTilesVer3ViewController: UIViewController {
     var sampleSolutionOrigin_Y: CGFloat = 80
     
     var initialSolutionButtonViewOrigin_X: CGFloat = 20
-    var initialSolutionButtonViewOrigin_Y: CGFloat = 80
+    var initialSolutionButtonViewOrigin_Y: CGFloat = 380
     
     var solutionButtonSeparatorY: CGFloat = 70
     var solutionButtonSeparatorX: CGFloat = 320 / 2 + 20
@@ -60,7 +60,7 @@ class FractionTilesVer3ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        puzzleView = UIImageView(frame: CGRectMake(0,0, CGFloat(availableWidth),100))
+        puzzleView = UIImageView(frame: CGRectMake(0,0, CGFloat(availableWidth),800))
         solutionButtonsView = UIImageView(frame: CGRectMake(0, 300, 415, 500))
         solutionButtonsView.backgroundColor = UIColor.lightGrayColor()
         
@@ -69,6 +69,7 @@ class FractionTilesVer3ViewController: UIViewController {
         drawSolutionButtonViews()
         drawSolutionOutlineView()
         displayPuzzleStatement()
+        displayPlayAgainButton()
        
     }
     
@@ -76,11 +77,11 @@ class FractionTilesVer3ViewController: UIViewController {
     func initializeAllArrays(){
         
         fractionArray[0] = "5/6"
-        sampleSolutionArray[0] = "1/6, 1/6, 1/6, 1,6, 1,6"
+        sampleSolutionArray[0] = "1/6, 1/6, 1/6, 1/6, 1/6"
         solutionArray[0] = "1/2, 1/3, 1/4, 1/5, 1/6, 1/8, 1/12, 1/12"
         
         fractionArray[1] = "1/1"
-        sampleSolutionArray[1] = "1"
+        sampleSolutionArray[1] = "1/1"
         solutionArray[1] = "1/2, 1/2, 1/3, 1/4, 1/4, 1/6, 1/8, 1/10"
         
         fractionArray[2] = "1/1"
@@ -188,12 +189,21 @@ class FractionTilesVer3ViewController: UIViewController {
     
     func resetSolutionButtonOrigin(){
         initialSolutionButtonViewOrigin_X = 20
-        initialSolutionButtonViewOrigin_Y = 80
+        initialSolutionButtonViewOrigin_Y = 380
     }
     
     func resetViewTappedOrigin(){
         viewTappedOrigin_X = 20
         viewTappedOrigin_Y = 130
+    }
+    
+    func displayPlayAgainButton(){
+        let playAgainButton = UIButton(frame: CGRectMake(140, 250, 100, 50))
+        //playAgainButton.setTitle("Play Again", forState: UIControlState.Normal)
+        //playAgainButton.backgroundColor = UIColor.blueColor()
+        playAgainButton.setImage(UIImage(named: "welcome_button.png"), forState: UIControlState.Normal)
+        puzzleView.addSubview(playAgainButton)
+        playAgainButton.addTarget(self, action: "playAgain:", forControlEvents: UIControlEvents.TouchUpInside)
     }
     
     
@@ -204,7 +214,7 @@ class FractionTilesVer3ViewController: UIViewController {
     
     func displayPuzzleStatement(){
         var puzzleStatement: UILabel!
-        puzzleStatement = UILabel(frame: CGRectMake(20, 30, 380, 50))
+        puzzleStatement = UILabel(frame: CGRectMake(20, 30, 380, 30))
         puzzleStatement.text = "Build " + fractionArray[randomFractionIndex] + ". See sample answer below"
         puzzleStatement.font = UIFont(descriptor: UIFontDescriptor(name: "Verdana", size: 18), size: 18)
         puzzleStatement.textColor = UIColor.blueColor()
@@ -227,11 +237,17 @@ class FractionTilesVer3ViewController: UIViewController {
         
         var tempSampSol = sampleSolutionArray[randomFractionIndex].componentsSeparatedByString(",")
         
+        print("TempSampSol: ", tempSampSol)
+        
         for temp_x in 0...tempSampSol.count - 1 {
             var m = getNumDen(tempSampSol[temp_x])
+            print("m: ", m)
+            var x: CGFloat!
+            var y: CGFloat!
+            
             //Convert m from String to CGFloat
-            let x = CGFloat(NSNumberFormatter().numberFromString(m[0])!)
-            let y = CGFloat(NSNumberFormatter().numberFromString(m[1])!)
+            x = CGFloat(NSNumberFormatter().numberFromString(m[0])!)
+            y = CGFloat(NSNumberFormatter().numberFromString(m[1])!)
             
             let imageName = getFractionImage(String(Int(x)), String(Int(y)))
             
@@ -255,7 +271,7 @@ class FractionTilesVer3ViewController: UIViewController {
             tagX = Int(x)
             tagY = Int(y)
             
-            print("In drawSolutionButtonViews - X, Y", tagX, tagY)
+            //print("In drawSolutionButtonViews - X, Y", tagX, tagY)
 
             let imageName = getFractionImage(String(Int(x)), String(Int(y)))
             
@@ -266,7 +282,7 @@ class FractionTilesVer3ViewController: UIViewController {
             //print("Button X, Y ", "\(temp_x)", "\(solutionButtonViewOrigin_X)", "\(solutionButtonViewOrigin_Y)")
 
             
-            drawView(solutionButtonViewOrigin_X, solutionButtonViewOrigin_Y, availableWidth * x/y, 50, imageName, solutionButtonsView ,UIColor.redColor(), UIColor.blueColor().CGColor)
+            drawView(solutionButtonViewOrigin_X, solutionButtonViewOrigin_Y, availableWidth * x/y, 50, imageName, puzzleView ,UIColor.redColor(), UIColor.blueColor().CGColor)
             
             
         }
@@ -304,7 +320,7 @@ class FractionTilesVer3ViewController: UIViewController {
         //label.text = labelText
         
         sampleSolutionView.image = UIImage(named: labelText)
-        print(labelText)
+        //print(labelText)
         
         let solutionTapGestureRecognizer = UITapGestureRecognizer(target: self, action:Selector("solutionTapped:"))
         sampleSolutionView.userInteractionEnabled = true
@@ -324,7 +340,7 @@ class FractionTilesVer3ViewController: UIViewController {
     
     
     func solutionTapped(gestureRecognizer: UITapGestureRecognizer){
-        print("Tapped on solution view: ", "\(gestureRecognizer.view)")
+        //print("Tapped on solution view: ", "\(gestureRecognizer.view)")
         
         let width = gestureRecognizer.view!.frame.width
         let tag = gestureRecognizer.view!.tag
@@ -332,7 +348,7 @@ class FractionTilesVer3ViewController: UIViewController {
         
         // Call your pangesturerecognizer function here
         
-        print("\(gestureRecognizer.view!.frame.width)")
+        //print("\(gestureRecognizer.view!.frame.width)")
         
         let imageName = String("1_") + String(tag) + String(".png")
         
@@ -350,17 +366,13 @@ class FractionTilesVer3ViewController: UIViewController {
     
     
     
-    @IBAction func didPressPlayAgain(sender: UIButton) {
-        
+    func playAgain(sender: UIButton){
         print("Random Fraction Index: ", "\(randomFractionIndex)")
         
         for view in puzzleView.subviews{
             view.removeFromSuperview()
         }
         
-        for view in solutionButtonsView.subviews{
-            view.removeFromSuperview()
-        }
         
         resetSampleSolutionOrigin()
         resetSolutionButtonOrigin()
@@ -369,7 +381,7 @@ class FractionTilesVer3ViewController: UIViewController {
         drawSolutionButtonViews()
         drawSolutionOutlineView()
         displayPuzzleStatement()
-
+        displayPlayAgainButton()
     }
     
 
@@ -382,9 +394,9 @@ class FractionTilesVer3ViewController: UIViewController {
     
     
     func checkAnswer(){
-        print("In Check Answer")
-        print("    View Tapped Origin X: \(viewTappedOrigin_X)")
-        print("    puzzleWidth: \(puzzleWidth)")
+        //print("In Check Answer")
+        //print("    View Tapped Origin X: \(viewTappedOrigin_X)")
+        //print("    puzzleWidth: \(puzzleWidth)")
         
         if(viewTappedOrigin_X > availableWidth + 20 || Int(viewTappedOrigin_X) > Int(puzzleWidth + 20))
         {
