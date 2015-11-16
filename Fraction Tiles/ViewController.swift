@@ -45,6 +45,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         
         tilePos = 0
         
+        
         sumOfWidth = 0.0
         setMaxX = 0.0
         

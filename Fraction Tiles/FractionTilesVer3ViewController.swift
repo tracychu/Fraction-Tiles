@@ -23,6 +23,7 @@ class FractionTilesVer3ViewController: UIViewController {
     var puzzleView: UIImageView!
     
     var solutionButtonsView: UIImageView!
+    var solutionOutlineView: UIView!
     
     var puzzleLabel: UILabel!
     
@@ -41,6 +42,8 @@ class FractionTilesVer3ViewController: UIViewController {
     
     var solutionOutlineOrigin_X: CGFloat = 20
     var solutionOutlineOrigin_Y: CGFloat = 130
+    var answerTagArray = [Int]()
+    var answerViewArray = [UIView]()
     
     var viewTappedOrigin_X: CGFloat = 20
     var viewTappedOrigin_Y: CGFloat = 130
@@ -49,10 +52,12 @@ class FractionTilesVer3ViewController: UIViewController {
     var tagX: Int = 0
     var tagY: Int = 0
     var initLocations = Dictionary<Int, CGPoint>()
+    var answerTileLocations = Dictionary<Int, CGPoint>()
     
     var fractionArray = [String](count: 26, repeatedValue: "1/2")
     var sampleSolutionArray = [String](count: 26, repeatedValue: "1/2, 1/2")
     var solutionArray = [String](count: 26, repeatedValue: "1/2, 1/2")
+    var viewTag = 0
     
     
     
@@ -67,7 +72,7 @@ class FractionTilesVer3ViewController: UIViewController {
         initializeAllArrays()
         getSampleSolution()
         drawSolutionButtonViews()
-        drawSolutionOutlineView()
+      //  drawSolutionOutlineView()
         displayPuzzleStatement()
         displayPlayAgainButton()
        
@@ -290,13 +295,16 @@ class FractionTilesVer3ViewController: UIViewController {
     }
     
     
-    func drawSolutionOutlineView(){
+    func drawSolutionOutlineView() {
         var solutionOutlineFraction = fractionArray[randomFractionIndex].componentsSeparatedByString("/")
         
         let x = CGFloat(NSNumberFormatter().numberFromString(solutionOutlineFraction[0])!)
         let y = CGFloat(NSNumberFormatter().numberFromString(solutionOutlineFraction[1])!)
         
         drawView(solutionOutlineOrigin_X, solutionOutlineOrigin_Y, availableWidth*x/y, 50, "", puzzleView , UIColor.whiteColor(), UIColor.blackColor().CGColor)
+        
+        
+        
     }
     
     
@@ -322,18 +330,21 @@ class FractionTilesVer3ViewController: UIViewController {
         sampleSolutionView.image = UIImage(named: labelText)
         //print(labelText)
         
-        let solutionTapGestureRecognizer = UITapGestureRecognizer(target: self, action:Selector("solutionTapped:"))
+      //  let solutionTapGestureRecognizer = UITapGestureRecognizer(target: self, action:Selector("solutionTapped:"))
         sampleSolutionView.userInteractionEnabled = true
         parentView.userInteractionEnabled = true
-        sampleSolutionView.addGestureRecognizer(solutionTapGestureRecognizer)
+       // sampleSolutionView.addGestureRecognizer(solutionTapGestureRecognizer)
         
-        sampleSolutionView.tag = tagY
-        
+        sampleSolutionView.tag = viewTag
+        viewTag += 1
         //sampleSolutionView.addSubview(label)
         parentView.addSubview(sampleSolutionView)
         self.view.addSubview(parentView)
         initLocations.updateValue(sampleSolutionView.center, forKey: sampleSolutionView.tag)
-        var panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "onTilePan:")
+        
+
+        
+        var panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "onSolutionPan:")
         sampleSolutionView.addGestureRecognizer(panGestureRecognizer)
         
     }
@@ -352,7 +363,7 @@ class FractionTilesVer3ViewController: UIViewController {
         
         let imageName = String("1_") + String(tag) + String(".png")
         
-        drawView(viewTappedOrigin_X, viewTappedOrigin_Y, width, 50, imageName, puzzleView, UIColor.brownColor(), UIColor.whiteColor().CGColor)
+        //drawView(viewTappedOrigin_X, viewTappedOrigin_Y, width, 50, imageName, puzzleView, UIColor.brownColor(), UIColor.whiteColor().CGColor)
         gestureRecognizer.view?.removeFromSuperview()
         
         // End calling your function
@@ -362,6 +373,90 @@ class FractionTilesVer3ViewController: UIViewController {
         checkAnswer()
     }
     
+    
+    func onSolutionPan(sender: UIPanGestureRecognizer) {
+        
+        // Absolute (x,y) coordinates in parent view
+        let TileLocation = sender.locationInView(sender.view)
+        
+        // Relative change in (x,y) coordinates from where gesture began.
+        var translation = sender.translationInView(view)
+        var velocity = sender.velocityInView(view)
+        
+        if sender.state == UIGestureRecognizerState.Began {
+            //print("Gesture began at: \(messageLocation)")
+            
+        } else if sender.state == UIGestureRecognizerState.Changed {
+            // Get the initial position of the View
+            let viewInitX = initLocations[sender.view!.tag]?.x
+            let viewInitY = initLocations[sender.view!.tag]?.y
+            
+            sender.view?.center = CGPoint(x: viewInitX!+translation.x, y: viewInitY!+translation.y)
+            
+            
+        } else if sender.state == UIGestureRecognizerState.Ended {
+            
+            print("view loc y :\(sender.view?.frame.origin.y)")
+            let width = sender.view!.frame.width
+            let tag = sender.view!.tag
+            let imageName = String("1_") + String(tag) + String(".png")
+            
+            
+            if (abs(viewTappedOrigin_X - (sender.view?.frame.origin.x)!) < 50 ) && (abs(viewTappedOrigin_Y - (sender.view?.frame.origin.y)!) < 50) {
+                
+                answerTagArray.append(tag)
+                answerViewArray.append(sender.view!)
+                answerTileLocations.updateValue((sender.view?.center)!, forKey: tag)
+
+               UIView.animateWithDuration(0.3, animations: { () -> Void in
+                    
+                    // Call your pangesturerecognizer function here
+                    
+                    //print("\(gestureRecognizer.view!.frame.width)")
+                    
+                    
+                  //  self.drawView(self.viewTappedOrigin_X, self.viewTappedOrigin_Y, width, 50, imageName, self.puzzleView, UIColor.brownColor(), UIColor.whiteColor().CGColor)
+                   // gestureRecognizer.view?.removeFromSuperview()
+                    sender.view?.frame.origin.x = self.viewTappedOrigin_X
+                    sender.view?.frame.origin.y = self.viewTappedOrigin_Y
+                
+                    // End calling your function
+                    
+                    self.viewTappedOrigin_X = self.viewTappedOrigin_X + width
+                    
+                    self.checkAnswer()
+                    
+                
+                })
+                
+            } else {
+                    print("Here in TilePan Ended : \(initLocations[(sender.view?.tag)!]!) \t \(tag)")
+                
+                    UIView.animateWithDuration(0.6, animations: { () -> Void in
+                        sender.view?.center = initLocations[tag]!
+                    })
+                    if (answerTagArray.contains(tag)) {
+                        viewTappedOrigin_X = viewTappedOrigin_X - width
+                        let viewToRemove = answerViewArray.indexOf(sender.view!)
+                        let tagToRemove = answerTagArray.indexOf(tag)
+                
+                        answerTagArray.removeAtIndex(tagToRemove!)
+                        answerViewArray.removeAtIndex(viewToRemove!)
+                
+                        for (var j = viewToRemove! ; j < answerViewArray.count ; j++) {
+                            answerViewArray[j].frame.origin = CGPoint(x: answerViewArray[j].frame.origin.x - width, y: answerViewArray[j].frame.origin.y)
+                    
+                        }
+                    
+                
+                    }
+                
+            }
+            
+            
+        }
+        
+    }
     
     
     
