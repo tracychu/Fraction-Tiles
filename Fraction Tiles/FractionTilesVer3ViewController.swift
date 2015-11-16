@@ -524,6 +524,24 @@ class FractionTilesVer3ViewController: UIViewController {
 
             
         }
+            
+        else if(Int(viewTappedOrigin_X) < Int(puzzleWidth + 20)) {
+            
+            // Play Click Sound
+            
+            let path = NSBundle.mainBundle().pathForResource("Click.wav", ofType:nil)!
+            let url = NSURL(fileURLWithPath: path)
+            
+            do {
+                let sound = try AVAudioPlayer(contentsOfURL: url)
+                clickSoundEffect = sound
+                sound.play()
+            } catch {
+                // couldn't load file :(
+            }
+            
+
+        }
         else if(Int(viewTappedOrigin_X) == Int(puzzleWidth + 20)) {
 //            let alertRight = UIAlertView()
 //            alertRight.title = "Congratulations"
@@ -531,7 +549,22 @@ class FractionTilesVer3ViewController: UIViewController {
 //            alertRight.addButtonWithTitle("OK")
 //            alertRight.show()
             
-// Promeet score check
+            
+            // Play Yay Sound
+            
+            let path = NSBundle.mainBundle().pathForResource("yay.mp3", ofType:nil)!
+            let url = NSURL(fileURLWithPath: path)
+            
+            do {
+                let sound = try AVAudioPlayer(contentsOfURL: url)
+                yaySoundEffect = sound
+                sound.play()
+            } catch {
+                // couldn't load file :(
+            }
+            
+            
+            // Promeet score check
             
             var defaults = NSUserDefaults.standardUserDefaults()
             var currentScore = defaults.integerForKey("correctScore")
