@@ -26,6 +26,7 @@ class ScoreViewController: UIViewController {
         var row8 = 0
         var row9 = 0
         var row10 = 0
+        let imageOffset = CGFloat(215)
         
             print("You are here")
             
@@ -45,7 +46,7 @@ class ScoreViewController: UIViewController {
                 {
                     let imageView = UIImageView()
                     imageView.image = UIImage(named: "Emoji.png")
-                    imageView.frame = CGRect(x: CGFloat(i) * (imageView.image!.size.width + 10), y: 100, width: imageView.image!.size.width, height: imageView.image!.size.height)
+                    imageView.frame = CGRect(x: CGFloat(i) * (imageView.image!.size.width + 10), y: imageOffset , width: imageView.image!.size.width, height: imageView.image!.size.height)
                     view.addSubview(imageView)
                 }
                     
@@ -53,7 +54,7 @@ class ScoreViewController: UIViewController {
                 {
                     let imageView = UIImageView()
                     imageView.image = UIImage(named: "Emoji.png")
-                    imageView.frame = CGRect(x: CGFloat(row2) * (imageView.image!.size.width + 10), y: 150, width: imageView.image!.size.width, height: imageView.image!.size.height)
+                    imageView.frame = CGRect(x: CGFloat(row2) * (imageView.image!.size.width + 10), y: imageOffset+50 , width: imageView.image!.size.width, height: imageView.image!.size.height)
                     view.addSubview(imageView)
                     row2 = row2 + 1
                 }
@@ -62,7 +63,7 @@ class ScoreViewController: UIViewController {
                 {
                     let imageView = UIImageView()
                     imageView.image = UIImage(named: "Emoji.png")
-                    imageView.frame = CGRect(x: CGFloat(row3) * (imageView.image!.size.width + 10), y: 200, width: imageView.image!.size.width, height: imageView.image!.size.height)
+                    imageView.frame = CGRect(x: CGFloat(row3) * (imageView.image!.size.width + 10), y: imageOffset+100 , width: imageView.image!.size.width, height: imageView.image!.size.height)
                     view.addSubview(imageView)
                     row3 = row3 + 1
                 }
@@ -71,7 +72,7 @@ class ScoreViewController: UIViewController {
                 {
                     let imageView = UIImageView()
                     imageView.image = UIImage(named: "Emoji.png")
-                    imageView.frame = CGRect(x: CGFloat(row4) * (imageView.image!.size.width + 10), y: 250, width: imageView.image!.size.width, height: imageView.image!.size.height)
+                    imageView.frame = CGRect(x: CGFloat(row4) * (imageView.image!.size.width + 10), y: imageOffset+150, width: imageView.image!.size.width, height: imageView.image!.size.height)
                     view.addSubview(imageView)
                     row4 = row4 + 1
                 }
@@ -80,7 +81,7 @@ class ScoreViewController: UIViewController {
                 {
                     let imageView = UIImageView()
                     imageView.image = UIImage(named: "Emoji.png")
-                    imageView.frame = CGRect(x: CGFloat(row5) * (imageView.image!.size.width + 10), y: 300, width: imageView.image!.size.width, height: imageView.image!.size.height)
+                    imageView.frame = CGRect(x: CGFloat(row5) * (imageView.image!.size.width + 10), y: imageOffset+200, width: imageView.image!.size.width, height: imageView.image!.size.height)
                     view.addSubview(imageView)
                     row5 = row5 + 1
                 }
@@ -89,7 +90,7 @@ class ScoreViewController: UIViewController {
                 {
                     let imageView = UIImageView()
                     imageView.image = UIImage(named: "Emoji.png")
-                    imageView.frame = CGRect(x: CGFloat(row6) * (imageView.image!.size.width + 10), y: 350, width: imageView.image!.size.width, height: imageView.image!.size.height)
+                    imageView.frame = CGRect(x: CGFloat(row6) * (imageView.image!.size.width + 10), y: imageOffset+250, width: imageView.image!.size.width, height: imageView.image!.size.height)
                     view.addSubview(imageView)
                     row6 = row6 + 1
                 }
@@ -98,7 +99,7 @@ class ScoreViewController: UIViewController {
                 {
                     let imageView = UIImageView()
                     imageView.image = UIImage(named: "Emoji.png")
-                    imageView.frame = CGRect(x: CGFloat(row7) * (imageView.image!.size.width + 10), y: 400, width: imageView.image!.size.width, height: imageView.image!.size.height)
+                    imageView.frame = CGRect(x: CGFloat(row7) * (imageView.image!.size.width + 10), y: imageOffset+300, width: imageView.image!.size.width, height: imageView.image!.size.height)
                     view.addSubview(imageView)
                     row7 = row7 + 1
                 }
@@ -106,7 +107,7 @@ class ScoreViewController: UIViewController {
                 {
                     let imageView = UIImageView()
                     imageView.image = UIImage(named: "Emoji.png")
-                    imageView.frame = CGRect(x: CGFloat(row8) * (imageView.image!.size.width + 10), y: 450, width: imageView.image!.size.width, height: imageView.image!.size.height)
+                    imageView.frame = CGRect(x: CGFloat(row8) * (imageView.image!.size.width + 10), y: imageOffset+350, width: imageView.image!.size.width, height: imageView.image!.size.height)
                     view.addSubview(imageView)
                     row8 = row8 + 1
                 }
@@ -114,7 +115,7 @@ class ScoreViewController: UIViewController {
                 {
                     let imageView = UIImageView()
                     imageView.image = UIImage(named: "Emoji.png")
-                    imageView.frame = CGRect(x: CGFloat(row9) * (imageView.image!.size.width + 10), y: 500, width: imageView.image!.size.width, height: imageView.image!.size.height)
+                    imageView.frame = CGRect(x: CGFloat(row9) * (imageView.image!.size.width + 10), y: imageOffset+400, width: imageView.image!.size.width, height: imageView.image!.size.height)
                     view.addSubview(imageView)
                     row9 = row9 + 1
                 }
@@ -122,7 +123,7 @@ class ScoreViewController: UIViewController {
                 {
                     let imageView = UIImageView()
                     imageView.image = UIImage(named: "Emoji.png")
-                    imageView.frame = CGRect(x: CGFloat(row10) * (imageView.image!.size.width + 10), y: 550, width: imageView.image!.size.width, height: imageView.image!.size.height)
+                    imageView.frame = CGRect(x: CGFloat(row10) * (imageView.image!.size.width + 10), y: imageOffset+450, width: imageView.image!.size.width, height: imageView.image!.size.height)
                     view.addSubview(imageView)
                     row10 = row10 + 1
                 }

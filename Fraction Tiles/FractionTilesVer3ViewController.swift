@@ -396,7 +396,6 @@ class FractionTilesVer3ViewController: UIViewController {
             
         } else if sender.state == UIGestureRecognizerState.Ended {
             
-            print("view loc y :\(sender.view?.frame.origin.y)")
             let width = sender.view!.frame.width
             let tag = sender.view!.tag
             let imageName = String("1_") + String(tag) + String(".png")
@@ -430,9 +429,7 @@ class FractionTilesVer3ViewController: UIViewController {
                 })
                 
             } else {
-                    print("Here in TilePan Ended : \(initLocations[(sender.view?.tag)!]!) \t \(tag)")
-                
-                    UIView.animateWithDuration(0.6, animations: { () -> Void in
+                    UIView.animateWithDuration(0.8, animations: { () -> Void in
                         sender.view?.center = initLocations[tag]!
                     })
                     if (answerTagArray.contains(tag)) {
@@ -444,7 +441,10 @@ class FractionTilesVer3ViewController: UIViewController {
                         answerViewArray.removeAtIndex(viewToRemove!)
                 
                         for (var j = viewToRemove! ; j < answerViewArray.count ; j++) {
-                            answerViewArray[j].frame.origin = CGPoint(x: answerViewArray[j].frame.origin.x - width, y: answerViewArray[j].frame.origin.y)
+                            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                                self.answerViewArray[j].frame.origin = CGPoint(x: self.answerViewArray[j].frame.origin.x - width, y: self.answerViewArray[j].frame.origin.y)
+                            })
+                            
                     
                         }
                     
