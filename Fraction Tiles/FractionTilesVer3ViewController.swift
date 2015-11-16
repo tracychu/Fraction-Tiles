@@ -74,7 +74,7 @@ class FractionTilesVer3ViewController: UIViewController {
         drawSolutionButtonViews()
       //  drawSolutionOutlineView()
         displayPuzzleStatement()
-        displayPlayAgainButton()
+      //  displayPlayAgainButton()
        
     }
     
@@ -219,10 +219,10 @@ class FractionTilesVer3ViewController: UIViewController {
     
     func displayPuzzleStatement(){
         var puzzleStatement: UILabel!
-        puzzleStatement = UILabel(frame: CGRectMake(20, 30, 380, 30))
-        puzzleStatement.text = "Build " + fractionArray[randomFractionIndex] + ". See sample answer below"
-        puzzleStatement.font = UIFont(descriptor: UIFontDescriptor(name: "Verdana", size: 18), size: 18)
-        puzzleStatement.textColor = UIColor.blueColor()
+        puzzleStatement = UILabel(frame: CGRectMake(65, 30, 380, 30))
+        puzzleStatement.text = "Combine the tiles to make " + fractionArray[randomFractionIndex]
+        puzzleStatement.font = UIFont(descriptor: UIFontDescriptor(name: "HelveticaNeue-Medium", size: 17), size: 17)
+        puzzleStatement.textColor = UIColor.blackColor()
         puzzleView.addSubview(puzzleStatement)
         
     }
