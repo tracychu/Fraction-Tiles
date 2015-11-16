@@ -351,6 +351,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="youdidit" destination="079-vv-pnv" id="6wh-C7-vqI"/>
                         <outlet property="yourScore" destination="mf8-HR-FW7" id="Z86-1b-Lja"/>
                         <segue destination="Z4M-Kr-yXT" kind="modal" identifier="PlayAgainSegue" id="XEh-VO-BjH"/>
                     </connections>

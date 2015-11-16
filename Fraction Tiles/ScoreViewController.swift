@@ -12,6 +12,15 @@ class ScoreViewController: UIViewController {
 
     @IBOutlet weak var yourScore: UILabel!
     
+    @IBOutlet weak var youdidit: UIImageView!
+    
+    var YouDidItImage1: UIImage!
+    var YouDidItImage2: UIImage!
+    var YouDidItImage3: UIImage!
+    var YouDidItImage4: UIImage!
+    var YouDidItArray: [UIImage]!
+    var randomImage: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,9 +36,20 @@ class ScoreViewController: UIViewController {
         var row9 = 0
         var row10 = 0
         let imageOffset = CGFloat(215)
+       
+        YouDidItImage1 = UIImage(named: "YouDidIt")
+        YouDidItImage2 = UIImage(named: "YouDidIt_2")
+        YouDidItImage3 = UIImage(named: "YouDidIt_5")
+        YouDidItImage4 = UIImage(named: "YouDidIt_6")
+        
+        YouDidItArray = [YouDidItImage1,YouDidItImage2,YouDidItImage3,YouDidItImage4]
+        
+        randomImage = Int(arc4random_uniform(UInt32(YouDidItArray.count)))
         
             print("You are here")
-            
+        
+            youdidit.image = YouDidItArray[randomImage]
+        
             let defaults = NSUserDefaults.standardUserDefaults()
             let ecount1 = defaults.integerForKey("correctScore")
             print(ecount1)
