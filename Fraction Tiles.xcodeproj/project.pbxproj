@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A69EA301BFA667A00A9A841 /* Click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9A69EA2F1BFA667A00A9A841 /* Click.mp3 */; settings = {ASSET_TAGS = (); }; };
 		9A8DB79D1BE288EE00C25C09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8DB79C1BE288EE00C25C09 /* AppDelegate.swift */; };
 		9A8DB79F1BE288EE00C25C09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8DB79E1BE288EE00C25C09 /* ViewController.swift */; };
 		9A8DB7A21BE288EE00C25C09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A8DB7A01BE288EE00C25C09 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A69EA2F1BFA667A00A9A841 /* Click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Click.mp3; path = "../../../../Music/iTunes/iTunes Media/Music/Unknown Artist/Unknown Album/Click.mp3"; sourceTree = "<group>"; };
 		9A8DB7991BE288EE00C25C09 /* Fraction Tiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fraction Tiles.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A8DB79C1BE288EE00C25C09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A8DB79E1BE288EE00C25C09 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		9A83640D1BF5E2C700940B8E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9A69EA2F1BFA667A00A9A841 /* Click.mp3 */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A8DB7A71BE288EE00C25C09 /* LaunchScreen.storyboard in Resources */,
+				9A69EA301BFA667A00A9A841 /* Click.mp3 in Resources */,
 				9A8DB7A41BE288EE00C25C09 /* Assets.xcassets in Resources */,
 				9A8DB7A21BE288EE00C25C09 /* Main.storyboard in Resources */,
 			);
