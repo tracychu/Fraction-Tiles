@@ -15,6 +15,9 @@
 		9A8DB7B21BE288EE00C25C09 /* Fraction_TilesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8DB7B11BE288EE00C25C09 /* Fraction_TilesTests.swift */; };
 		9A8DB7BD1BE288EE00C25C09 /* Fraction_TilesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8DB7BC1BE288EE00C25C09 /* Fraction_TilesUITests.swift */; };
 		9A974B211BFA742200320821 /* yay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9A974B201BFA742200320821 /* yay.mp3 */; settings = {ASSET_TAGS = (); }; };
+		9A974B231BFA750800320821 /* Wrong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9A974B221BFA750800320821 /* Wrong.mp3 */; settings = {ASSET_TAGS = (); }; };
+		9A974B251BFA75A400320821 /* Click.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9A974B241BFA75A400320821 /* Click.wav */; settings = {ASSET_TAGS = (); }; };
+		9A974B271BFA75B100320821 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A974B261BFA75B100320821 /* AVFoundation.framework */; };
 		D20908791BEEA7AB00DB048F /* FractionTilesVer3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20908781BEEA7AB00DB048F /* FractionTilesVer3ViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		ED36B59E1BF562D800A839E3 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED36B59D1BF562D800A839E3 /* ScoreViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		ED36B5A01BF56D7000A839E3 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED36B59F1BF56D7000A839E3 /* MainPageViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -52,6 +55,9 @@
 		9A8DB7BC1BE288EE00C25C09 /* Fraction_TilesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fraction_TilesUITests.swift; sourceTree = "<group>"; };
 		9A8DB7BE1BE288EE00C25C09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A974B201BFA742200320821 /* yay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yay.mp3; sourceTree = "<group>"; };
+		9A974B221BFA750800320821 /* Wrong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Wrong.mp3; sourceTree = "<group>"; };
+		9A974B241BFA75A400320821 /* Click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Click.wav; sourceTree = "<group>"; };
+		9A974B261BFA75B100320821 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D20908781BEEA7AB00DB048F /* FractionTilesVer3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FractionTilesVer3ViewController.swift; sourceTree = "<group>"; };
 		ED36B59D1BF562D800A839E3 /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		ED36B59F1BF56D7000A839E3 /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A974B271BFA75B100320821 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +92,8 @@
 		9A83640D1BF5E2C700940B8E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9A974B221BFA750800320821 /* Wrong.mp3 */,
+				9A974B241BFA75A400320821 /* Click.wav */,
 				9A974B201BFA742200320821 /* yay.mp3 */,
 			);
 			name = "Supporting Files";
@@ -93,6 +102,7 @@
 		9A8DB7901BE288EE00C25C09 = {
 			isa = PBXGroup;
 			children = (
+				9A974B261BFA75B100320821 /* AVFoundation.framework */,
 				9A8DB79B1BE288EE00C25C09 /* Fraction Tiles */,
 				9A8DB7B01BE288EE00C25C09 /* Fraction TilesTests */,
 				9A8DB7BB1BE288EE00C25C09 /* Fraction TilesUITests */,
@@ -249,7 +259,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A974B211BFA742200320821 /* yay.mp3 in Resources */,
+				9A974B251BFA75A400320821 /* Click.wav in Resources */,
 				9A8DB7A71BE288EE00C25C09 /* LaunchScreen.storyboard in Resources */,
+				9A974B231BFA750800320821 /* Wrong.mp3 in Resources */,
 				9A8DB7A41BE288EE00C25C09 /* Assets.xcassets in Resources */,
 				9A8DB7A21BE288EE00C25C09 /* Main.storyboard in Resources */,
 			);

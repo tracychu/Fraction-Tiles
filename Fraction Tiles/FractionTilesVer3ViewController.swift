@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class FractionTilesVer3ViewController: UIViewController {
 
@@ -59,6 +60,9 @@ class FractionTilesVer3ViewController: UIViewController {
     var solutionArray = [String](count: 26, repeatedValue: "1/2, 1/2")
     var viewTag = 0
     
+    var clickSoundEffect: AVAudioPlayer!
+    var wrongSoundEffect: AVAudioPlayer!
+    var yaySoundEffect: AVAudioPlayer!
     
     
     override func viewDidLoad() {
@@ -495,11 +499,30 @@ class FractionTilesVer3ViewController: UIViewController {
         
         if(viewTappedOrigin_X > availableWidth + 20 || Int(viewTappedOrigin_X) > Int(puzzleWidth + 20))
         {
+
+            /* comment out the wrong alert
             let alertWrong = UIAlertView()
             alertWrong.title = "Oops!!!"
             alertWrong.message = "Sorry. That's the wrong answer"
             alertWrong.addButtonWithTitle("OK")
             alertWrong.show()
+            */
+            
+            
+            // play Wrong sound 
+            
+            let path = NSBundle.mainBundle().pathForResource("Wrong.mp3", ofType:nil)!
+            let url = NSURL(fileURLWithPath: path)
+            
+            do {
+                let sound = try AVAudioPlayer(contentsOfURL: url)
+                wrongSoundEffect = sound
+                sound.play()
+            } catch {
+                // couldn't load file :(
+            }
+
+            
         }
         else if(Int(viewTappedOrigin_X) == Int(puzzleWidth + 20)) {
 //            let alertRight = UIAlertView()
