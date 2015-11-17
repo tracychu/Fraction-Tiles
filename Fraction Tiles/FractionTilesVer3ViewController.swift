@@ -509,13 +509,13 @@ class FractionTilesVer3ViewController: UIViewController {
         if(viewTappedOrigin_X > availableWidth + 20 || Int(viewTappedOrigin_X) > Int(puzzleWidth + 20))
         {
 
-            /* comment out the wrong alert
+          
             let alertWrong = UIAlertView()
-            alertWrong.title = "Oops!!!"
-            alertWrong.message = "Sorry. That's the wrong answer"
+            alertWrong.title = "Oops!"
+            alertWrong.message = "Drag a tile down and try again"
             alertWrong.addButtonWithTitle("OK")
             alertWrong.show()
-            */
+        
             
             
             // play Wrong sound 
