@@ -21,6 +21,7 @@ class ScoreViewController: UIViewController {
     var YouDidItImage4: UIImage!
     var YouDidItImage5: UIImage!
     var YouDidItImage6: UIImage!
+    var YouDidItImage7: UIImage!
     var YouDidItArray: [UIImage]!
     var randomImage: Int!
     
@@ -40,12 +41,13 @@ class ScoreViewController: UIViewController {
         var row10 = 0
         let imageOffset = CGFloat(215)
        
-        YouDidItImage1 = UIImage(named: "YouDidIt")
-        YouDidItImage2 = UIImage(named: "YouDidIt_2")
-        YouDidItImage3 = UIImage(named: "YouDidIt_3")
-        YouDidItImage4 = UIImage(named: "YouDidIt_4")
-        YouDidItImage5 = UIImage(named: "YouDidIt_5")
-        YouDidItImage6 = UIImage(named: "YouDidIt_6")
+        YouDidItImage1 = UIImage(named: "YouDidIt1")
+        YouDidItImage2 = UIImage(named: "YouDidIt2")
+        YouDidItImage3 = UIImage(named: "YouDidIt3")
+        YouDidItImage4 = UIImage(named: "YouDidIt4")
+        YouDidItImage5 = UIImage(named: "YouDidIt5")
+        YouDidItImage6 = UIImage(named: "YouDidIt6")
+        YouDidItImage7 = UIImage(named: "YouDidIt7")
         YouDidItArray = [YouDidItImage1,YouDidItImage2,YouDidItImage3,YouDidItImage4,YouDidItImage5,YouDidItImage6]
         
         randomImage = Int(arc4random_uniform(UInt32(YouDidItArray.count)))
