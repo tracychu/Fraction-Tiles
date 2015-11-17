@@ -12,13 +12,8 @@ import AVFoundation
 class FractionTilesVer3ViewController: UIViewController {
 
     
-    @IBOutlet weak var SolutionBarView: UIImageView!
     
-    @IBOutlet weak var DragHereLabel: UILabel!
-    
-    
-    
-        var availableWidth: CGFloat = 320
+    var availableWidth: CGFloat = 320
     
     var imageViewArray = Array<UIImageView>()
     
@@ -80,8 +75,8 @@ class FractionTilesVer3ViewController: UIViewController {
         
         initializeAllArrays()
         getSampleSolution()
-        drawSolutionButtonViews()
         drawSolutionOutlineView()
+        drawSolutionButtonViews()
         displayPuzzleStatement()
       //  displayPlayAgainButton()
        
@@ -310,12 +305,29 @@ class FractionTilesVer3ViewController: UIViewController {
         let x = CGFloat(NSNumberFormatter().numberFromString(solutionOutlineFraction[0])!)
         let y = CGFloat(NSNumberFormatter().numberFromString(solutionOutlineFraction[1])!)
         
+       //SolutionBarView.image = cropToBounds (SolutionBarView.image!,width: availableWidth*x/y, height: 50)
         
-       // drawView(solutionOutlineOrigin_X, solutionOutlineOrigin_Y, availableWidth*x/y, 50, "SolutionOutlineView", puzzleView , UIColor.grayColor(), UIColor.blackColor().CGColor)
+
+     //   let NewImgSize = CGSizeMake(availableWidth*x/y, 50)
+       // var SolutionBarImage = UIImage(named: "SolutionBar")
+       // SolutionBarView.image = RBSquareImageTo(SolutionBarImage!, size: NewImgSize)
+        
+     //   UIGraphicsBeginImageContext(SolutionBarView.bounds.size);
+       // SolutionBarView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+       // var image = UIGraphicsGetImageFromCurrentImageContext()
+       // SolutionBarView.image = cropToBounds (image,width: availableWidth*x/y, height: 50)
+      //  UIGraphicsEndImageContext();
         
         
+      // SolutionBarView.reloadInputViews()
         
+        drawView(solutionOutlineOrigin_X, solutionOutlineOrigin_Y, availableWidth*x/y, 50, "SolutionOutlineView", puzzleView , UIColor.lightGrayColor(), UIColor.blackColor().CGColor)
+        
+               
     }
+    
+    
+    
     
     
     func getNumDen(fraction: String) -> [String] {
