@@ -11,9 +11,13 @@ import AVFoundation
 
 class FractionTilesVer3ViewController: UIViewController {
 
-    @IBOutlet weak var imageView: UIImageView!
     
-    var availableWidth: CGFloat = 320
+    
+    @IBOutlet weak var DragHereLabel: UILabel!
+    
+    @IBOutlet weak var SolutionOV: UIImageView!
+    
+        var availableWidth: CGFloat = 320
     
     var imageViewArray = Array<UIImageView>()
     
@@ -76,7 +80,7 @@ class FractionTilesVer3ViewController: UIViewController {
         initializeAllArrays()
         getSampleSolution()
         drawSolutionButtonViews()
-      //  drawSolutionOutlineView()
+        drawSolutionOutlineView()
         displayPuzzleStatement()
       //  displayPlayAgainButton()
        
@@ -305,7 +309,10 @@ class FractionTilesVer3ViewController: UIViewController {
         let x = CGFloat(NSNumberFormatter().numberFromString(solutionOutlineFraction[0])!)
         let y = CGFloat(NSNumberFormatter().numberFromString(solutionOutlineFraction[1])!)
         
-        drawView(solutionOutlineOrigin_X, solutionOutlineOrigin_Y, availableWidth*x/y, 50, "", puzzleView , UIColor.whiteColor(), UIColor.blackColor().CGColor)
+       
+        SolutionOV.sizeThatFits(CGSizeMake(availableWidth*x/y, 50))
+        
+       // drawView(solutionOutlineOrigin_X, solutionOutlineOrigin_Y, availableWidth*x/y, 50, "SolutionOutlineView", puzzleView , UIColor.grayColor(), UIColor.blackColor().CGColor)
         
         
         
@@ -322,14 +329,16 @@ class FractionTilesVer3ViewController: UIViewController {
         
         let sampleSolutionView = UIImageView(frame: CGRectMake(origin_X, origin_Y, width, height))
         
-        //sampleSolutionView.layer.borderWidth = 1
-        //sampleSolutionView.layer.borderColor = viewBorderColor
-        //sampleSolutionView.backgroundColor = viewColor
+        if (labelText == "SolutionOutlineView") {
+            sampleSolutionView.layer.borderWidth = 1
+            sampleSolutionView.layer.borderColor = viewBorderColor
+            sampleSolutionView.backgroundColor = viewColor
         
-        //let label = UILabel(frame: CGRectMake(0, 12.5, 30, 20))
-        //label.font = UIFont(name: label.font.fontName, size: 12)
-        //label.textColor = UIColor.whiteColor()
-        //label.text = labelText
+            let label = UILabel(frame: CGRectMake(0, 12.5, 30, 20))
+            label.font = UIFont(name: label.font.fontName, size: 12)
+            label.textColor = UIColor.whiteColor()
+            label.text = labelText
+        }
         
         sampleSolutionView.image = UIImage(named: labelText)
         //print(labelText)
@@ -344,8 +353,9 @@ class FractionTilesVer3ViewController: UIViewController {
         //sampleSolutionView.addSubview(label)
         parentView.addSubview(sampleSolutionView)
         self.view.addSubview(parentView)
-        initLocations.updateValue(sampleSolutionView.center, forKey: sampleSolutionView.tag)
-        
+        if (labelText != "SolutionOutlineView") {
+            initLocations.updateValue(sampleSolutionView.center, forKey: sampleSolutionView.tag)
+        }
 
         
         var panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "onSolutionPan:")
