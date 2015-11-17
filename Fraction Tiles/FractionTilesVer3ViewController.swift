@@ -321,9 +321,9 @@ class FractionTilesVer3ViewController: UIViewController {
         
       // SolutionBarView.reloadInputViews()
         
-        drawView(solutionOutlineOrigin_X, solutionOutlineOrigin_Y, availableWidth*x/y, 50, "SolutionOutlineView", puzzleView , UIColor.lightGrayColor(), UIColor.blackColor().CGColor)
+        drawView(solutionOutlineOrigin_X, solutionOutlineOrigin_Y, availableWidth*x/y, 50, "SolutionOutlineView", puzzleView ,UIColor(white: 0.75, alpha: 0.8) , UIColor.blackColor().CGColor)
         
-               
+              // UIColor.lightGrayColor()
     }
     
     
@@ -349,13 +349,16 @@ class FractionTilesVer3ViewController: UIViewController {
             label.font = UIFont(name: label.font.fontName, size: 12)
             label.textColor = UIColor.whiteColor()
             label.text = labelText
+            sampleSolutionView.userInteractionEnabled = false
         }
         
         sampleSolutionView.image = UIImage(named: labelText)
         //print(labelText)
         
       //  let solutionTapGestureRecognizer = UITapGestureRecognizer(target: self, action:Selector("solutionTapped:"))
-        sampleSolutionView.userInteractionEnabled = true
+        if (labelText != "SolutionOutlineView") {
+            sampleSolutionView.userInteractionEnabled = true
+        }
         parentView.userInteractionEnabled = true
        // sampleSolutionView.addGestureRecognizer(solutionTapGestureRecognizer)
         
