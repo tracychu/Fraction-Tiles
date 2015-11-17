@@ -385,7 +385,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="dET-n7-9lk">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SolutionBar" id="dET-n7-9lk">
                                 <rect key="frame" x="20" y="130" width="240" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -396,6 +396,7 @@
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="DragHereLabel" destination="yFu-lu-Oe9" id="PpZ-2g-h5M"/>
+                        <outlet property="SolutionBarView" destination="dET-n7-9lk" id="Rax-NN-Taq"/>
                         <segue destination="mB1-vM-zqa" kind="modal" identifier="scoreBoardSegue" id="WN0-Ea-NOz"/>
                     </connections>
                 </viewController>
@@ -405,6 +406,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="SolutionBar" width="360" height="70"/>
         <image name="YouDidIt" width="276" height="182"/>
         <image name="bg" width="370" height="667"/>
         <image name="play_again_button" width="135" height="38"/>

@@ -12,10 +12,11 @@ import AVFoundation
 class FractionTilesVer3ViewController: UIViewController {
 
     
+    @IBOutlet weak var SolutionBarView: UIImageView!
     
     @IBOutlet weak var DragHereLabel: UILabel!
     
-    @IBOutlet weak var SolutionOV: UIImageView!
+    
     
         var availableWidth: CGFloat = 320
     
@@ -309,8 +310,6 @@ class FractionTilesVer3ViewController: UIViewController {
         let x = CGFloat(NSNumberFormatter().numberFromString(solutionOutlineFraction[0])!)
         let y = CGFloat(NSNumberFormatter().numberFromString(solutionOutlineFraction[1])!)
         
-       
-        SolutionOV.sizeThatFits(CGSizeMake(availableWidth*x/y, 50))
         
        // drawView(solutionOutlineOrigin_X, solutionOutlineOrigin_Y, availableWidth*x/y, 50, "SolutionOutlineView", puzzleView , UIColor.grayColor(), UIColor.blackColor().CGColor)
         
