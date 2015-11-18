@@ -354,7 +354,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                 
             } else {
                 UIView.animateWithDuration(0.3, animations: { () -> Void in
-                    sender.view?.center = initLocations[(sender.view?.tag)!]!
+                    sender.view?.center = self.initLocations[(sender.view?.tag)!]!
                 })
                 for (var i = 0; i < self.posWidth.count ; i++) {
                     if (self.posWidth[i] == sender.view?.frame.width) {

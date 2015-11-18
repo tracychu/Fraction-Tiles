@@ -458,7 +458,7 @@ class FractionTilesVer3ViewController: UIViewController {
                 
             } else {
                     UIView.animateWithDuration(0.8, animations: { () -> Void in
-                        sender.view?.center = initLocations[tag]!
+                        sender.view?.center = self.initLocations[tag]!
                     })
                     if (answerTagArray.contains(tag)) {
                         viewTappedOrigin_X = viewTappedOrigin_X - width
